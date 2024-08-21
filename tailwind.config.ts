@@ -21,7 +21,7 @@ const config = {
 			backgroundImage: {
 				deadpool: "url(/DeadPool.png)",
 				"deadpool-dark":
-					"linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3)), url('/DeadPool.png')",
+					"linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.6)), url('/DeadPool.png')",
 			},
 			colors: {
 				border: "hsl(var(--border))",
