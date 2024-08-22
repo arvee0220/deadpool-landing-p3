@@ -1,11 +1,19 @@
 import Link from 'next/link';
 import React from 'react';
 import Logo from '../elements/Logo';
+import {
+  FaEnvelope,
+  FaFacebook,
+  FaInstagram,
+  FaPhone,
+  FaTiktok,
+  FaXTwitter,
+} from 'react-icons/fa6';
 
 type LogoLinkType = {
   name: string;
   link: string;
-  icon: string;
+  icon: React.ReactElement;
 };
 
 type LinkType = {
@@ -19,7 +27,7 @@ type FooterLinkType = {
 };
 
 type ContactType = {
-  icon: string;
+  icon: React.ReactElement;
   details: string;
 };
 
@@ -33,22 +41,22 @@ export default function Footer() {
     {
       name: 'Facebook',
       link: 'https://facebook.com',
-      icon: '',
+      icon: <FaFacebook />,
     },
     {
       name: 'Instagram',
       link: 'https://instagram.com',
-      icon: '',
+      icon: <FaInstagram />,
     },
     {
       name: 'X',
       link: 'https://x.com',
-      icon: '',
+      icon: <FaXTwitter />,
     },
     {
       name: 'Tiktok',
       link: 'https://tiktok.com',
-      icon: '',
+      icon: <FaTiktok />,
     },
   ];
 
@@ -114,11 +122,11 @@ export default function Footer() {
     linkHeader: 'Contact Us',
     contacts: [
       {
-        icon: '',
+        icon: <FaPhone />,
         details: '+63123456789',
       },
       {
-        icon: '',
+        icon: <FaEnvelope />,
         details: 'Nightcinema1@gmail.com',
       },
     ],
@@ -162,7 +170,7 @@ export default function Footer() {
             target="_blank"
             key={logo.name}
             className="text-[#E4A600] text-2xl">
-            {logo.name.split('')[0]}
+            {logo.icon}
           </Link>
         ))}
       </div>
@@ -176,7 +184,7 @@ export default function Footer() {
         <div
           key={index}
           className="flex gap-4 items-center">
-          <span className="text-[#E4A600] text-2xl">L</span>
+          <span className="text-[#E4A600] text-2xl">{item.icon}</span>
           <span>{item.details}</span>
         </div>
       ))}
