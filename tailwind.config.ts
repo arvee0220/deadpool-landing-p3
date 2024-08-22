@@ -23,6 +23,7 @@ const config = {
 				"deadpool-dark":
 					"linear-gradient(18deg, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 0.6) 75%), url('/DeadPool.png')",
 			},
+
 			colors: {
 				border: "hsl(var(--border))",
 				input: "hsl(var(--input))",
