@@ -57,6 +57,13 @@ const config = {
 					DEFAULT: "hsl(var(--card))",
 					foreground: "hsl(var(--card-foreground))",
 				},
+				deadpool: {
+					primary: "var(--deadpool-primary)",
+					secondary: "var(--deadpool-secondary)",
+					accent: "var(--deadpool-accent)",
+					neutral: "var(--deadpool-neutral)",
+					iconbackground: "var(--deadpool-iconbackground)",
+				},
 			},
 			borderRadius: {
 				lg: "var(--radius)",
