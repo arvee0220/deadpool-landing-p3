@@ -2,6 +2,19 @@
 import { useState } from "react";
 import { Moon, Phone } from "lucide-react";
 import { Button } from "../ui/button";
+import Link from "next/link";
+
+interface navText {
+	href: string;
+	text: string;
+}
+
+const navMenu: navText[] = [
+	{ href: "#home", text: "Home" },
+	{ href: "#reviews", text: "Reviews" },
+	{ href: "#article", text: "Article" },
+	{ href: "#cast", text: "Cast" },
+];
 
 const NavBar: React.FC = () => {
 	const [toggleMenu, setToggleMenu] = useState(false);
@@ -31,10 +44,11 @@ const NavBar: React.FC = () => {
 					{toggleMenu && (
 						<div className="flex flex-col mt-2 bg-deadpool-neutral rounded-md shadow-lg absolute top-20 right-8 w-15">
 							<ul className="flex flex-col gap-2 p-3">
-								<li>Home</li>
-								<li>Reviews</li>
-								<li>Article</li>
-								<li>Cast</li>
+								{navMenu.map(({ href, text }, idx) => (
+									<li key={idx}>
+										<Link href={href}>{text}</Link>
+									</li>
+								))}
 							</ul>
 						</div>
 					)}
@@ -44,10 +58,11 @@ const NavBar: React.FC = () => {
 			{/* Mid to larger viewport */}
 			<div className="hidden w-6/12 md:flex justify-end items-center gap-5 pr-2">
 				<ul className="w-6/12 flex flex-row justify-between gap-3 p-3">
-					<li>Home</li>
-					<li>Reviews</li>
-					<li>Article</li>
-					<li>Cast</li>
+					{navMenu.map(({ href, text }, idx) => (
+						<li key={idx}>
+							<Link href={href}>{text}</Link>
+						</li>
+					))}
 				</ul>
 				<Button variant="secondary" className="rounded-full">
 					Contact
