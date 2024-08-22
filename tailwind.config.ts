@@ -64,6 +64,7 @@ const config = {
 					accent: "var(--deadpool-accent)",
 					neutral: "var(--deadpool-neutral)",
 					iconbackground: "var(--deadpool-iconbackground)",
+					body: "var(--deadpool-body)"
 				},
 			},
 			borderRadius: {
