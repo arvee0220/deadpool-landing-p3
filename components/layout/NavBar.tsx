@@ -14,29 +14,31 @@ const NavBar: React.FC = () => {
 				<p className="font-bold text-[24px] relative bottom-3">CINEMA</p>
 			</div>
 
+			{/* Mobile and tablet view */}
 			<div className="md:w-6/12 md:hidden flex items-center px-3 gap-5 md:px-0">
 				<div>
 					<Phone />
 				</div>
-				<div
-					className="flex flex-col justify-between w-6 h-5 cursor-pointer"
-					onClick={() => setToggleMenu(!toggleMenu)}
-				>
-					<span className="block w-full h-[2px] bg-deadpool-primary rounded" />
-					<span className="block w-4/6 h-[2px] bg-deadpool-primary rounded ml-auto" />
-					<span className="block w-full h-[2px] bg-deadpool-primary rounded" />
-				</div>
-
-				{toggleMenu && (
-					<div className="flex flex-col bg-deadpool-neutral">
-						<ul>
-							<li>Home</li>
-							<li>Reviews</li>
-							<li>Article</li>
-							<li>Cast</li>
-						</ul>
+				<div className="flex flex-col">
+					<div
+						className="flex flex-col justify-between w-6 h-5 cursor-pointer"
+						onClick={() => setToggleMenu(!toggleMenu)}
+					>
+						<span className="block w-full h-[2px] bg-deadpool-primary rounded" />
+						<span className="block w-4/6 h-[2px] bg-deadpool-primary rounded ml-auto" />
+						<span className="block w-full h-[2px] bg-deadpool-primary rounded" />
 					</div>
-				)}
+					{toggleMenu && (
+						<div className="flex flex-col mt-2 bg-deadpool-neutral rounded-md shadow-lg absolute top-20 right-8 w-15">
+							<ul className="flex flex-col gap-2 p-3">
+								<li>Home</li>
+								<li>Reviews</li>
+								<li>Article</li>
+								<li>Cast</li>
+							</ul>
+						</div>
+					)}
+				</div>
 			</div>
 
 			{/* Mid to larger viewport */}
