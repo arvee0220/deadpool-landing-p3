@@ -23,7 +23,7 @@ const NavBar: React.FC = () => {
 		<div className="w-11/12 h-[8rem] flex justify-between items-center">
 			<div className="h-15 px-3 md:px-1">
 				<span className="text-[16px]">
-					NIGHT <Moon size={18} className="inline relative -top-[10px] left-[2px]" />
+					NIGHT <Moon size={18} className="inline relative -top-[10px] -left-[2px]" />
 				</span>
 				<p className="font-bold text-[24px] leading-none relative -top-[0.4rem]">CINEMA</p>
 			</div>
