@@ -1,7 +1,218 @@
+import Link from 'next/link';
 import React from 'react';
+import Logo from '../elements/Logo';
 
-function Footer() {
-  return <div>Footer</div>;
+type LogoLinkType = {
+  name: string;
+  link: string;
+  icon: string;
+};
+
+type LinkType = {
+  name: string;
+  link: string;
+};
+
+type FooterLinkType = {
+  linkHeader: string;
+  links: LinkType[];
+};
+
+type ContactType = {
+  icon: string;
+  details: string;
+};
+
+type ContactLinkType = {
+  linkHeader: string;
+  contacts: ContactType[];
+};
+
+export default function Footer() {
+  const logoLinks: LogoLinkType[] = [
+    {
+      name: 'Facebook',
+      link: 'https://facebook.com',
+      icon: '',
+    },
+    {
+      name: 'Instagram',
+      link: 'https://instagram.com',
+      icon: '',
+    },
+    {
+      name: 'X',
+      link: 'https://x.com',
+      icon: '',
+    },
+    {
+      name: 'Tiktok',
+      link: 'https://tiktok.com',
+      icon: '',
+    },
+  ];
+
+  const footerLinks: FooterLinkType[] = [
+    {
+      linkHeader: 'Information',
+      links: [
+        {
+          name: 'Home',
+          link: '/',
+        },
+        {
+          name: 'Reviews',
+          link: '/',
+        },
+        {
+          name: 'Article',
+          link: '/',
+        },
+        {
+          name: 'Cast',
+          link: '/',
+        },
+      ],
+    },
+    {
+      linkHeader: 'Helpful Links',
+      links: [
+        {
+          name: 'Subscription',
+          link: '/',
+        },
+        {
+          name: 'Terms of Use',
+          link: '/',
+        },
+        {
+          name: 'Privacy Policy',
+          link: '/',
+        },
+        {
+          name: 'Feedback',
+          link: '/',
+        },
+      ],
+    },
+    {
+      linkHeader: 'Services',
+      links: [
+        {
+          name: 'Tickets On sale',
+          link: '/',
+        },
+        {
+          name: 'Dealer',
+          link: '/',
+        },
+      ],
+    },
+  ];
+
+  const contactLinks: ContactLinkType = {
+    linkHeader: 'Contact Us',
+    contacts: [
+      {
+        icon: '',
+        details: '+63123456789',
+      },
+      {
+        icon: '',
+        details: 'Nightcinema1@gmail.com',
+      },
+    ],
+  };
+
+  const subscribeWrapper = (
+    <div className="w-full flex flex-col xl:flex-row justify-between xl:items-center gap-[50px] bg-[#131210] rounded-[60px] px-11 py-10 xl:py-[82px]">
+      <div className="text-white">
+        <h1 className="text-4xl font-semibold mb-2">
+          Subscribe for you to be updated
+        </h1>
+        <p className="text-base">
+          Stay Updated on the Latest Marvel News and Updates.
+        </p>
+      </div>
+      <div className="flex flex-col xl:flex-row items-start xl:items-center gap-[13px]">
+        <input
+          type="text"
+          placeholder="Your Email"
+          className="w-full md:w-[333px] h-12 border-b border-[#F3F3F3] bg-transparent px-3 py-[21px]"
+        />
+        <button className="bg-[#F3F3F3] px-6 py-3 rounded-full border-black text-[#080808]">
+          Get Started
+        </button>
+      </div>
+    </div>
+  );
+
+  const siteDetails = (
+    <div className="w-full lg:w-[344px] h-[200px] lg:h-auto flex flex-col justify-between pr-[58px] ">
+      <Logo />
+      <p className="md:w-3/5 lg:w-full">
+        Your ultimate destination for all things film. Explore in-depth review,
+        breaking news, and exclusive insights into the latest movies and
+        cinematic trends.
+      </p>
+      <div className="flex gap-[34px]">
+        {logoLinks.map(logo => (
+          <Link
+            href={logo.link}
+            target="_blank"
+            key={logo.name}
+            className="text-[#E4A600] text-2xl">
+            {logo.name.split('')[0]}
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+
+  const contactLinksWrapper = (
+    <div className="flex flex-col gap-5">
+      <h1 className="font-semibold text-white">{contactLinks.linkHeader}</h1>
+      {contactLinks.contacts.map((item, index) => (
+        <div
+          key={index}
+          className="flex gap-4 items-center">
+          <span className="text-[#E4A600] text-2xl">L</span>
+          <span>{item.details}</span>
+        </div>
+      ))}
+    </div>
+  );
+
+  const siteDirectory = (
+    <div className="grid grid-cols-3 lg:grid-cols-4 gap-x-10 xl:gap-x-0 gap-y-24">
+      {footerLinks.map((item, index) => (
+        <div
+          key={index}
+          className="flex flex-col gap-5">
+          <h1 className="font-semibold text-white">{item.linkHeader}</h1>
+          {item.links.map(link => (
+            <Link
+              href={link.link}
+              key={link.name}>
+              {link.name}
+            </Link>
+          ))}
+        </div>
+      ))}
+      {contactLinksWrapper}
+    </div>
+  );
+
+  return (
+    <div className="w-full flex flex-col text-[#808080] bg-[#080808] tracking-tighter px-[25px] md:px-[75px] py-7">
+      {subscribeWrapper}
+      <div className="w-full flex flex-col gap-24 xl:gap-0 xl:flex-row justify-between mt-32">
+        {siteDetails}
+        {siteDirectory}
+      </div>
+      <h1 className="w-full text-center mt-20">
+        All Rights Reserved. NightCinema
+      </h1>
+    </div>
+  );
 }
-
-export default Footer;
