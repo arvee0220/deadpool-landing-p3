@@ -48,7 +48,10 @@ const NavBar: React.FC = () => {
 						<div className="flex flex-col mt-2 bg-deadpool-neutral rounded-md shadow-lg absolute top-20 right-8 w-15">
 							<ul className="flex flex-col gap-2 p-3">
 								{navMenu.map(({ href, text }, idx) => (
-									<li key={idx}>
+									<li
+										key={idx}
+										className="hover:border-b-2 hover:text-deadpool-secondary border-deadpool-secondary"
+									>
 										<Link href={href}>{text}</Link>
 									</li>
 								))}
@@ -62,7 +65,10 @@ const NavBar: React.FC = () => {
 			<div className="hidden w-6/12 md:flex justify-end items-center gap-5 pr-2">
 				<ul className="w-6/12 flex flex-row justify-between gap-3 p-3">
 					{navMenu.map(({ href, text }, idx) => (
-						<li key={idx}>
+						<li
+							key={idx}
+							className="relative w-full hover:border-b-2 hover:text-deadpool-secondary border-deadpool-secondary text-center pb-1"
+						>
 							<Link href={href}>{text}</Link>
 						</li>
 					))}
