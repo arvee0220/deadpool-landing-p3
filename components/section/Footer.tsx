@@ -133,8 +133,8 @@ export default function Footer() {
   };
 
   const subscribeWrapper = (
-    <div className="w-full flex flex-col xl:flex-row justify-between xl:items-center gap-[50px] bg-[#131210] rounded-[60px] px-11 py-10 xl:py-[82px]">
-      <div className="text-white">
+    <div className="w-full flex flex-col xl:flex-row justify-between xl:items-center gap-[50px] bg-deadpool-iconbackground rounded-[60px] px-11 py-10 xl:py-[82px]">
+      <div className="text-deadpool-primary">
         <h1 className="text-4xl font-semibold mb-2">
           Subscribe for you to be updated
         </h1>
@@ -146,9 +146,9 @@ export default function Footer() {
         <input
           type="text"
           placeholder="Your Email"
-          className="w-full md:w-[333px] h-12 border-b border-[#F3F3F3] bg-transparent px-3 py-[21px]"
+          className="w-full md:w-[333px] h-12 border-b border-deadpool-primary bg-transparent px-3 py-[21px]"
         />
-        <button className="bg-[#F3F3F3] px-6 py-3 rounded-full border-black text-[#080808]">
+        <button className="bg-deadpool-primary px-6 py-3 rounded-full border-border text-deadpool-neutral">
           Get Started
         </button>
       </div>
@@ -169,7 +169,7 @@ export default function Footer() {
             href={logo.link}
             target="_blank"
             key={logo.name}
-            className="text-[#E4A600] text-2xl">
+            className="text-deadpool-secondary text-2xl">
             {logo.icon}
           </Link>
         ))}
@@ -179,12 +179,14 @@ export default function Footer() {
 
   const contactLinksWrapper = (
     <div className="flex flex-col gap-5">
-      <h1 className="font-semibold text-white">{contactLinks.linkHeader}</h1>
+      <h1 className="font-semibold text-deadpool-primary">
+        {contactLinks.linkHeader}
+      </h1>
       {contactLinks.contacts.map((item, index) => (
         <div
           key={index}
           className="flex gap-4 items-center">
-          <span className="text-[#E4A600] text-2xl">{item.icon}</span>
+          <span className="text-deadpool-secondary text-2xl">{item.icon}</span>
           <span>{item.details}</span>
         </div>
       ))}
@@ -197,7 +199,9 @@ export default function Footer() {
         <div
           key={index}
           className="flex flex-col gap-5">
-          <h1 className="font-semibold text-white">{item.linkHeader}</h1>
+          <h1 className="font-semibold text-deadpool-primary">
+            {item.linkHeader}
+          </h1>
           {item.links.map(link => (
             <Link
               href={link.link}
@@ -212,7 +216,7 @@ export default function Footer() {
   );
 
   return (
-    <div className="w-full flex flex-col text-[#808080] bg-[#080808] tracking-tighter px-[25px] md:px-[75px] py-7">
+    <div className="w-full flex flex-col text-deadpool-body bg-deadpool-neutral tracking-tighter px-[25px] md:px-[75px] py-7">
       {subscribeWrapper}
       <div className="w-full flex flex-col gap-24 xl:gap-0 xl:flex-row justify-between mt-32">
         {siteDetails}

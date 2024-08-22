@@ -34,6 +34,7 @@
 		--deadpool-accent: #6b0310;
 		--deadpool-neutral: #080909;
 		--deadpool-iconbackground: #141210;
+		--deadpool-body: #808080;
 	}
 
 	.dark {
@@ -72,6 +73,6 @@
 		padding: 0;
 		margin: 0;
 		box-sizing: border-box;
-		@apply bg-[#080808] text-foreground text-white;
+		@apply bg-deadpool-neutral text-foreground text-white;
 	}
 }
