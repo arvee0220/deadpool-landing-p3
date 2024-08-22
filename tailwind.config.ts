@@ -21,7 +21,7 @@ const config = {
 			backgroundImage: {
 				deadpool: "url(/DeadPool.png)",
 				"deadpool-dark":
-					"linear-gradient(18deg, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 0.6) 75%), url('/DeadPool.png')",
+					"linear-gradient(18deg, rgba(8, 9, 9, 1) 25%, rgba(8, 9, 9, 0.6) 75%), url('/DeadPool.png')",
 			},
 
 			colors: {
@@ -64,7 +64,7 @@ const config = {
 					accent: "var(--deadpool-accent)",
 					neutral: "var(--deadpool-neutral)",
 					iconbackground: "var(--deadpool-iconbackground)",
-					body: "var(--deadpool-body)"
+					body: "var(--deadpool-body)",
 				},
 			},
 			borderRadius: {
