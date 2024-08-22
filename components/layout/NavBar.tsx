@@ -1,7 +1,11 @@
+"use client";
+import { useState } from "react";
 import { Moon, Phone } from "lucide-react";
 import { Button } from "../ui/button";
 
 const NavBar: React.FC = () => {
+	const [toggleMenu, setToggleMenu] = useState(false);
+
 	return (
 		<div className="w-11/12 h-[8rem] flex justify-between items-center">
 			<div className="h-15 px-3 md:px-0">
@@ -10,15 +14,29 @@ const NavBar: React.FC = () => {
 				<p className="font-bold text-[24px] relative bottom-3">CINEMA</p>
 			</div>
 
-			<div className="md:w-6/12 md:hidden flex gap-2 items-center">
+			<div className="md:w-6/12 md:hidden flex items-center px-3 gap-5 md:px-0">
 				<div>
 					<Phone />
 				</div>
-				<div className="flex flex-col justify-between w-6 h-5 cursor-pointer">
+				<div
+					className="flex flex-col justify-between w-6 h-5 cursor-pointer"
+					onClick={() => setToggleMenu(!toggleMenu)}
+				>
 					<span className="block w-full h-[2px] bg-deadpool-primary rounded" />
 					<span className="block w-4/6 h-[2px] bg-deadpool-primary rounded ml-auto" />
 					<span className="block w-full h-[2px] bg-deadpool-primary rounded" />
 				</div>
+
+				{toggleMenu && (
+					<div className="flex flex-col bg-deadpool-neutral">
+						<ul>
+							<li>Home</li>
+							<li>Reviews</li>
+							<li>Article</li>
+							<li>Cast</li>
+						</ul>
+					</div>
+				)}
 			</div>
 
 			{/* Mid to larger viewport */}
