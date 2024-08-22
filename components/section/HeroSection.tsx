@@ -19,7 +19,7 @@ function HeroSection() {
 				<div className="w-4/5 md:w-3/6 px-3 md:px-1 flex flex-col">
 					<Image src={marvelStudio} alt="Marvel logo" className="relative -left-1" />
 					<h1 className="text-5xl md:text-8xl font-bold">DEADPOOL</h1>
-					<h1 className="py-2 text-5xl md:text-8xl font-bold flex">
+					<h1 className="py-2 md:py-0 text-5xl md:text-8xl font-bold flex">
 						<span className=" text-4xl md:text-5xl text-transparent font-outline-secondary leading-8 md:leading-snug">
 							&
 						</span>

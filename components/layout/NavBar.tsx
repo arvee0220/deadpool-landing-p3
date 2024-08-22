@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Moon, Phone } from "lucide-react";
+import { Moon, Phone, X } from "lucide-react";
 import { Button } from "../ui/button";
 import Link from "next/link";
 
@@ -38,9 +38,15 @@ const NavBar: React.FC = () => {
 						className="flex flex-col justify-between w-6 h-5 cursor-pointer"
 						onClick={() => setToggleMenu(!toggleMenu)}
 					>
-						<span className="block w-full h-[2px] bg-deadpool-primary rounded" />
-						<span className="block w-4/6 h-[2px] bg-deadpool-primary rounded ml-auto" />
-						<span className="block w-full h-[2px] bg-deadpool-primary rounded" />
+						{toggleMenu ? (
+							<X size={20} className="text-deadpool-primary" />
+						) : (
+							<>
+								<span className="block w-full h-[2px] bg-deadpool-primary rounded" />
+								<span className="block w-4/6 h-[2px] bg-deadpool-primary rounded ml-auto" />
+								<span className="block w-full h-[2px] bg-deadpool-primary rounded" />
+							</>
+						)}
 					</div>
 					{toggleMenu && (
 						<div className="flex flex-col mt-2 bg-deadpool-neutral rounded-md shadow-lg absolute top-20 right-8 w-15">
