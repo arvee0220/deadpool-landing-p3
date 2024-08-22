@@ -21,7 +21,7 @@ const config = {
 			backgroundImage: {
 				deadpool: "url(/DeadPool.png)",
 				"deadpool-dark":
-					"linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3)), url('/DeadPool.png')",
+					"linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.6)), url('/DeadPool.png')",
 			},
 			colors: {
 				border: "hsl(var(--border))",
@@ -56,6 +56,13 @@ const config = {
 				card: {
 					DEFAULT: "hsl(var(--card))",
 					foreground: "hsl(var(--card-foreground))",
+				},
+				deadpool: {
+					primary: "var(--deadpool-primary)",
+					secondary: "var(--deadpool-secondary)",
+					accent: "var(--deadpool-accent)",
+					neutral: "var(--deadpool-neutral)",
+					iconbackground: "var(--deadpool-iconbackground)",
 				},
 			},
 			borderRadius: {
