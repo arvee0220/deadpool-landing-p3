@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 
 function HeroSection() {
 	return (
-		<div
+		<section
 			className="w-screen h-screen bg-deadpool-dark bg-cover bg-center flex flex-col items-center"
 			id="#home"
 		>
@@ -39,7 +39,7 @@ function HeroSection() {
 					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 }
 
