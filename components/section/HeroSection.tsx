@@ -32,20 +32,19 @@ const cinemaImages2: Images[] = [
 function HeroSection() {
 	return (
 		<section
-			className="w-screen h-screen bg-deadpool-dark bg-cover bg-center flex flex-col items-center"
+			className="w-screen h-screen bg-deadpool-dark bg-cover bg-center flex flex-col justify-center items-center"
 			id="#home"
 		>
-			<NavBar />
-			<div className="w-11/12 h-1/6">
-				<p className="text-[16px] text-left self-start px-3 md:px-1 leading-6">
+			<div className="w-11/12 h-1/6 flex justify-start items-center mt-8">
+				<p className="text-[16px] text-left px-3 md:px-1 leading-6 mt-10">
 					Premiered on July 22, 2024
 				</p>
 			</div>
 			<div className="w-11/12 flex justify-start">
 				<div className="w-4/5 md:w-3/6 px-3 md:px-1 flex flex-col">
 					<Image src={marvelStudio} alt="Marvel logo" className="relative -left-1" />
-					<h1 className="text-5xl md:text-8xl font-bold">DEADPOOL</h1>
-					<h1 className="py-2 md:py-0 text-5xl md:text-8xl font-bold flex">
+					<h1 className="text-5xl md:text-6xl font-bold">DEADPOOL</h1>
+					<h1 className="py-2 md:py-0 text-5xl md:text-6xl font-bold flex">
 						<span className=" text-4xl md:text-5xl text-transparent font-outline-secondary leading-8 md:leading-snug">
 							&
 						</span>
@@ -65,8 +64,8 @@ function HeroSection() {
 					</div>
 				</div>
 			</div>
-			<div className="w-11/12 h-2/5 flex flex-col xl:flex-row xl:justify-between xl:items-center">
-				<div className="relative h-1/3 xl:w-2/5 flex justify-between items-center px-2">
+			<div className="w-11/12 h-2/6 flex flex-col lg:flex-row lg:justify-between lg:items-center">
+				<div className="relative h-2/6 lg:w-2/5 flex justify-between items-center px-2">
 					{cinemaImages.map(({ source, altText }, idx) => (
 						<div key={idx}>
 							<Image src={source} alt={altText} width={150} height={100} />
@@ -74,17 +73,17 @@ function HeroSection() {
 					))}
 				</div>
 
-				<div className="h-1/3 flex flex-col justify-evenly items-center p-1 order-3 xl:order-none">
+				<div className="h-2/6 flex flex-col justify-evenly items-center p-1 order-3 lg:order-none">
 					<Button
 						size={"lg"}
 						variant={"default"}
-						className="w-16 h-16 md:h-24 lg:h-28 xl:h-16 p-0 rounded-full flex items-center justify-center"
+						className="w-16 h-20 md:h-24 lg:h-28 xl:h-16 p-0 rounded-full flex items-center justify-center"
 					>
 						<MoveDown className="text-deadpool-secondary" size={25} />
 					</Button>
 					<p className="text-center">Scroll Down</p>
 				</div>
-				<div className="relative h-1/3 xl:w-2/5 flex justify-between items-center px-2">
+				<div className="relative h-2/6 lg:w-2/5 flex justify-between items-center px-2">
 					{cinemaImages2.map(({ source, altText }, idx) => (
 						<div key={idx}>
 							<Image src={source} alt={altText} width={150} height={100} />
