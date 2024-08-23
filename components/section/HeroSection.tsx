@@ -1,4 +1,3 @@
-import NavBar from "../layout/NavBar";
 import Image, { StaticImageData } from "next/image";
 import { MoveDown } from "lucide-react";
 import {
