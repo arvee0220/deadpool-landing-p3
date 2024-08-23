@@ -73,6 +73,13 @@
 		padding: 0;
 		margin: 0;
 		box-sizing: border-box;
-		@apply bg-deadpool-neutral text-foreground text-white;
+		@apply bg-deadpool-neutral text-deadpool-primary;
+	}
+
+	.font-outline-primary {
+		-webkit-text-stroke: 1px var(--deadpool-primary);
+	}
+	.font-outline-secondary {
+		-webkit-text-stroke: 1px var(--deadpool-secondary);
 	}
 }
