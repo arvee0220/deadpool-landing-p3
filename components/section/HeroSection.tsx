@@ -65,10 +65,10 @@ function HeroSection() {
 				</div>
 			</div>
 			<div className="w-11/12 h-2/6 flex flex-col lg:flex-row lg:justify-between lg:items-center">
-				<div className="relative h-2/6 lg:w-2/5 flex justify-between items-center px-2">
+				<div className="relative h-2/6 lg:w-2/6 flex justify-between items-center px-2">
 					{cinemaImages.map(({ source, altText }, idx) => (
 						<div key={idx}>
-							<Image src={source} alt={altText} width={150} height={100} />
+							<Image src={source} alt={altText} width={125} height={100} />
 						</div>
 					))}
 				</div>
@@ -83,10 +83,10 @@ function HeroSection() {
 					</Button>
 					<p className="text-center">Scroll Down</p>
 				</div>
-				<div className="relative h-2/6 lg:w-2/5 flex justify-between items-center px-2">
+				<div className="relative h-2/6 lg:w-2/6 flex justify-between items-center px-2">
 					{cinemaImages2.map(({ source, altText }, idx) => (
 						<div key={idx}>
-							<Image src={source} alt={altText} width={150} height={100} />
+							<Image src={source} alt={altText} width={125} height={100} />
 						</div>
 					))}
 				</div>
