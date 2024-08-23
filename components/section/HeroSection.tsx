@@ -1,7 +1,33 @@
 import NavBar from "../layout/NavBar";
-import Image from "next/image";
-import marvelStudio from "../../public/marvelStudios.svg";
+import Image, { StaticImageData } from "next/image";
+import { MoveDown } from "lucide-react";
+import {
+	marvelStudio,
+	disney,
+	primeVid,
+	smCinema,
+	imax,
+	vista,
+	netflix,
+} from "../constants/images";
 import { Button } from "../ui/button";
+
+type Images = {
+	source: StaticImageData;
+	altText: string;
+};
+
+const cinemaImages: Images[] = [
+	{ source: disney, altText: "Disney Plus" },
+	{ source: primeVid, altText: "Prime Video" },
+	{ source: netflix, altText: "Netflix" },
+];
+
+const cinemaImages2: Images[] = [
+	{ source: smCinema, altText: "SM Cinema" },
+	{ source: imax, altText: "IMAX" },
+	{ source: vista, altText: "Vista" },
+];
 
 function HeroSection() {
 	return (
@@ -37,6 +63,33 @@ function HeroSection() {
 							Trailer
 						</Button>
 					</div>
+				</div>
+			</div>
+			<div className="w-11/12 h-2/5 flex flex-col xl:flex-row xl:justify-between xl:items-center">
+				<div className="relative h-1/3 xl:w-2/5 flex justify-between items-center px-2">
+					{cinemaImages.map(({ source, altText }, idx) => (
+						<div key={idx}>
+							<Image src={source} alt={altText} width={150} height={100} />
+						</div>
+					))}
+				</div>
+
+				<div className="h-1/3 flex flex-col justify-evenly items-center p-1 order-3 xl:order-none">
+					<Button
+						size={"lg"}
+						variant={"default"}
+						className="w-16 h-16 md:h-24 lg:h-28 xl:h-16 p-0 rounded-full flex items-center justify-center"
+					>
+						<MoveDown className="text-deadpool-secondary" size={25} />
+					</Button>
+					<p className="text-center">Scroll Down</p>
+				</div>
+				<div className="relative h-1/3 xl:w-2/5 flex justify-between items-center px-2">
+					{cinemaImages2.map(({ source, altText }, idx) => (
+						<div key={idx}>
+							<Image src={source} alt={altText} width={150} height={100} />
+						</div>
+					))}
 				</div>
 			</div>
 		</section>
