@@ -37,14 +37,6 @@ export default function ArticlesToRead() {
       thumbnail: article3Img,
       alt: "Hugh Jackman and Ryan Reynolds seemingly pointing at someone",
     },
-    {
-      title: "Deadpool & Wolverine beats box office record",
-      description:
-        "Marvel's Deadpool & Wolverine has had an impressive opening weekend in the US - becoming the eighth-biggest opening ever, and best of the year so far.",
-      authors: ["Bonnie McLaren"],
-      thumbnail: article3Img,
-      alt: "Hugh Jackman and Ryan Reynolds seemingly pointing at someone",
-    },
   ];
 
   const articlesToReadWrapper = (
@@ -68,12 +60,13 @@ export default function ArticlesToRead() {
         width: "100%",
         maxWidth: "100%",
       }}
-      spaceBetween={15}
+      spaceBetween={0}
       breakpoints={{
         320: { slidesPerView: 1 },
-        640: { slidesPerView: 1.5 },
+        640: { slidesPerView: 1.65 },
+        960: { slidesPerView: 2.05 },
         1024: { slidesPerView: 2.25 },
-        1280: { slidesPerView: 3.5 },
+        1280: { slidesPerView: 3.25 },
       }}
       navigation={{
         prevEl: ".custom-prev",
