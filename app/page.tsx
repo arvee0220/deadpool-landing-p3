@@ -1,3 +1,4 @@
+import NavBar from "@/components/layout/NavBar";
 import ArticlesToRead from "@/components/section/ArticlesToRead";
 import Cast from "@/components/section/Cast";
 import FindTickets from "@/components/section/FindTickets";
@@ -9,6 +10,7 @@ import SneakPeek from "@/components/section/SneakPeek";
 export default function Home() {
 	return (
 		<main className="w-screen h-full flex flex-col items-center">
+			<NavBar />
 			<HeroSection />
 			<SneakPeek />
 			<FindTickets />
