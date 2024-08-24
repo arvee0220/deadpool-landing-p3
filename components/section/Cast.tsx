@@ -1,7 +1,11 @@
-import React from 'react';
+import { Pagination } from "../ui/pagination";
 
 function Cast() {
-  return <div>Cast</div>;
+	return (
+		<div>
+			<Pagination />
+		</div>
+	);
 }
 
 export default Cast;
