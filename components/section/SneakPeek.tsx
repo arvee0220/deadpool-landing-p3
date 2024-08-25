@@ -7,6 +7,7 @@ import { Card } from "../ui/card";
 import Image from "next/image";
 import { Swiper as SwiperType } from "swiper/types";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { A11y } from "swiper/modules";
 
 function SneakPeek() {
   const [isEnd, setIsEnd] = useState<boolean>(false);
@@ -45,6 +46,7 @@ function SneakPeek() {
             }}
           />
           <Swiper
+            modules={[A11y]}
             breakpoints={{
               320: {
                 slidesPerView: 1,
