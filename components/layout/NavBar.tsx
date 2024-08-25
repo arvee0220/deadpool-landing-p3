@@ -21,7 +21,7 @@ const NavBar: React.FC = () => {
 	const [toggleMenu, setToggleMenu] = useState(false);
 
 	return (
-		<div className="w-11/12 h-[8rem] flex justify-between items-center">
+		<div className="w-11/12 h-[8rem] flex justify-between items-center fixed">
 			<Logo />
 
 			{/* Mobile and tablet view */}
@@ -62,8 +62,8 @@ const NavBar: React.FC = () => {
 			</div>
 
 			{/* Mid to larger viewport */}
-			<div className="hidden w-6/12 md:flex justify-end items-center gap-5 pr-2">
-				<ul className="w-6/12 flex flex-row justify-between gap-3 p-3">
+			<div className="hidden w-6/12 md:flex md:justify-evenly lg:justify-end items-center pr-2">
+				<ul className="xl:w-6/12 flex flex-row justify-between gap-3 p-3">
 					{navMenu.map(({ href, text }, idx) => (
 						<li
 							key={idx}
