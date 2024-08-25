@@ -14,8 +14,7 @@ import Image from "next/image";
 function SneakPeek() {
   return (
     <MaxWidthWrapper className="mt-24 mb-32">
-      <div className="grid grid-cols-3 gap-4"></div>
-      <div className="flex flex-col md:flex-row md:justify-between gap-10">
+      <div className="flex flex-col lg:flex-row md:justify-between gap-10">
         <div className="flex flex-col space-y-6">
           <h2 className="text-2xl font-semibold max-w-prose text-pretty leading-9">
             Deadpool & Wolverine is a 2024 American superhero film based on
@@ -42,7 +41,7 @@ function SneakPeek() {
             opts={{
               align: "start",
             }}
-            className="relative w-full max-w-2xl"
+            className="relative mx-auto max-w-2xl"
           >
             <div
               className="absolute left-0 w-full inset-y-0 z-10 pointer-events-none"
@@ -70,9 +69,7 @@ function SneakPeek() {
               ))}
             </CarouselContent>
             <div className="absolute -bottom-12 right-20 md:-bottom-16 md:right-24">
-              <span className="text-xs md:text-sm md:mr-6 md-4">
-                SWIPE RIGHT
-              </span>
+              <span className="text-sm md:mr-6 md-4">SWIPE RIGHT</span>
               <CarouselNext />
             </div>
           </Carousel>
