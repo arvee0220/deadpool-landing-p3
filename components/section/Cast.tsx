@@ -42,7 +42,7 @@ const castMembers: CastProps[] = [
 	{ img: dafne, castName: "Dafne Keen", castRole: "Laura / X-23" },
 ];
 
-const itemsPerPage = 6;
+const itemsPerPage = 5;
 
 function Cast() {
 	const [currentPage, setCurrentPage] = useState(1);
