@@ -56,7 +56,7 @@ function Cast() {
 	const totalPages = Math.ceil(castMembers.length / itemsPerPage);
 
 	return (
-		<section className="flex flex-col items-center justify-center -z-10">
+		<section className="w-11/12 flex flex-col items-center justify-center -z-10">
 			<div className="self-end text-right mb-8 max-w-3xl ml-auto pr-5">
 				<h1 className="text-3xl mb-2">Deadpool & Wolverine Cast</h1>
 				<p>
