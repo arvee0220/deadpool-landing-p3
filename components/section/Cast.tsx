@@ -64,7 +64,7 @@ function Cast() {
 					the actors behind this iconic Marvel duo and their roles in the film.
 				</p>
 			</div>
-			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+			<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
 				{currentItems.map(({ img, castName, castRole }, idx) => (
 					<Card key={idx} className="bg-deadpool-neutral border-none">
 						<CardHeader>
