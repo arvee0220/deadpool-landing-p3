@@ -2,7 +2,6 @@
 import {
 	Pagination,
 	PaginationContent,
-	PaginationEllipsis,
 	PaginationItem,
 	PaginationLink,
 	PaginationNext,
@@ -10,7 +9,18 @@ import {
 } from "@/components/ui/pagination";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Image, { StaticImageData } from "next/image";
-import { aaron, emma, hugh, matthew, ryan, shioli } from "../constants/images";
+import {
+	aaron,
+	blake,
+	chris,
+	dafne,
+	emma,
+	hugh,
+	leslie,
+	matthew,
+	ryan,
+	shioli,
+} from "../constants/images";
 import { useState } from "react";
 
 type CastProps = {
@@ -26,9 +36,13 @@ const castMembers: CastProps[] = [
 	{ img: aaron, castName: "Aaron Stanford", castRole: "Pyro" },
 	{ img: matthew, castName: "Matthew Macfayden", castRole: "Mobius" },
 	{ img: shioli, castName: "Shioli Kutsuna", castRole: "Yukio" },
+	{ img: leslie, castName: "Leslie Uggams", castRole: "Blind Al" },
+	{ img: blake, castName: "Blake Lively", castRole: "Ladypool" },
+	{ img: chris, castName: "Chris Evans", castRole: "Johnny Storm" },
+	{ img: dafne, castName: "Dafne Keen", castRole: "Laura / X-23" },
 ];
 
-const itemsPerPage = 3;
+const itemsPerPage = 6;
 
 function Cast() {
 	const [currentPage, setCurrentPage] = useState(1);
@@ -42,20 +56,26 @@ function Cast() {
 	const totalPages = Math.ceil(castMembers.length / itemsPerPage);
 
 	return (
-		<section>
-			<h1>Deadpool & Wolverine Cast</h1>
-			<p>
-				Meet the Star-Studded Lineup Bringing Your Favorite Characters to Life. Explore the
-				actors behind this iconic Marvel duo and their roles in the film.
-			</p>
-			<div>
+		<section className="flex flex-col items-center justify-center">
+			<div className="self-end text-right mb-8 max-w-3xl ml-auto pr-5">
+				<h1 className="text-3xl mb-2">Deadpool & Wolverine Cast</h1>
+				<p>
+					Meet the Star-Studded Lineup Bringing Your Favorite Characters to Life. Explore
+					the actors behind this iconic Marvel duo and their roles in the film.
+				</p>
+			</div>
+			<div className="flex flex-wrap justify-center gap-6">
 				{currentItems.map(({ img, castName, castRole }, idx) => (
-					<Card key={idx}>
+					<Card key={idx} className="bg-deadpool-neutral border-none">
 						<CardHeader>
-							<Image src={img} alt={castName} />
+							<Image
+								src={img}
+								alt={castName}
+								className="w-full h-[300px] rounded-lg relative"
+							/>
 						</CardHeader>
 						<CardContent>
-							<CardTitle>{castName}</CardTitle>
+							<CardTitle className="text-deadpool-primary">{castName}</CardTitle>
 							<CardDescription>{castRole}</CardDescription>
 						</CardContent>
 					</Card>
@@ -88,21 +108,20 @@ const Paginate: React.FC<PaginateProps> = ({ currentPage, totalPages, onPageChan
 					}}
 				/>
 			</PaginationItem>
-			<PaginationItem>
-				<PaginationLink href="#">1</PaginationLink>
-			</PaginationItem>
-			<PaginationItem>
-				<PaginationLink href="#">2</PaginationLink>
-			</PaginationItem>
-			<PaginationItem>
-				<PaginationLink href="#">3</PaginationLink>
-			</PaginationItem>
-			<PaginationItem>
-				<PaginationLink href="#">4</PaginationLink>
-			</PaginationItem>
-			<PaginationItem>
-				<PaginationEllipsis />
-			</PaginationItem>
+			{Array.from({ length: totalPages }, (_, idx) => (
+				<PaginationItem key={idx + 1}>
+					<PaginationLink
+						href="#"
+						onClick={(e) => {
+							e.preventDefault();
+							onPageChange(idx + 1);
+						}}
+						className={currentPage === idx + 1 ? "active" : ""}
+					>
+						{idx + 1}
+					</PaginationLink>
+				</PaginationItem>
+			))}
 			<PaginationItem>
 				<PaginationNext
 					href="#"

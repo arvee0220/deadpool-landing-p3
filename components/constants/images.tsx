@@ -17,6 +17,7 @@ import shioli from "@/public/cast/shioli.svg";
 import chris from "@/public/cast/chris.svg";
 import blake from "@/public/cast/blake.svg";
 import dafne from "@/public/cast/dafne.svg";
+import leslie from "@/public/cast/leslie.svg";
 
 export {
 	marvelStudio,
@@ -38,4 +39,5 @@ export {
 	chris,
 	blake,
 	dafne,
+	leslie,
 };
