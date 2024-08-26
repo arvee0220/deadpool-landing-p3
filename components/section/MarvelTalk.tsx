@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
 function MarvelTalk() {
-  return <div>MarvelTalk</div>;
+	return <div id="reviews">MarvelTalk</div>;
 }
 
 export default MarvelTalk;

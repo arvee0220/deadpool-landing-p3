@@ -120,7 +120,10 @@ export default function ArticlesToRead() {
 	);
 
 	return (
-		<div className="w-full flex flex-col text-deadpool-primary px-[25px] md:px-[75px] py-7 tracking-tighter gap-[22px] lg:gap-7">
+		<div
+			className="w-full flex flex-col text-deadpool-primary px-[25px] md:px-[75px] py-7 tracking-tighter gap-[22px] lg:gap-7"
+			id="article"
+		>
 			{articlesToReadWrapper}
 			{articlesCarousel}
 		</div>
