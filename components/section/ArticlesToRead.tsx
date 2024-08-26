@@ -84,7 +84,7 @@ export default function ArticlesToRead() {
 						<Image
 							src={item.thumbnail}
 							alt={item.alt}
-							className="object-cover rounded-2xl w-[350px] h-[260px] -z-10"
+							className="object-cover rounded-2xl w-[350px] h-[260px]"
 						/>
 						<div className="flex flex-col gap-[15px]">
 							<h1 className="text-deadpool-secondary text-2xl font-semibold">
