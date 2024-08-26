@@ -104,7 +104,7 @@ const Paginate: React.FC<PaginateProps> = ({ currentPage, totalPages, onPageChan
 					href="#"
 					onClick={(e) => {
 						e.preventDefault();
-						onPageChange(Math.max(currentPage - 1, 1));
+						onPageChange(currentPage > 1 ? currentPage - 1 : 1);
 					}}
 				/>
 			</PaginationItem>
@@ -127,7 +127,7 @@ const Paginate: React.FC<PaginateProps> = ({ currentPage, totalPages, onPageChan
 					href="#"
 					onClick={(e) => {
 						e.preventDefault();
-						onPageChange(Math.min(currentPage + 1, totalPages));
+						onPageChange(currentPage < totalPages ? currentPage + 1 : totalPages);
 					}}
 				/>
 			</PaginationItem>
