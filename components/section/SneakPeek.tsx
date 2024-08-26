@@ -1,21 +1,21 @@
-import React from "react";
+"use client";
+import React, { useRef, useState } from "react";
 import MaxWidthWrapper from "../layout/MaxWidthWrapper";
 import { Button } from "../ui/button";
-import { PlayIcon } from "lucide-react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-} from "@/components/ui/carousel";
-import { Card, CardContent } from "../ui/card";
+import { ArrowRight, PlayIcon } from "lucide-react";
+import { Card } from "../ui/card";
 import Image from "next/image";
+import { Swiper as SwiperType } from "swiper/types";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { A11y } from "swiper/modules";
 
 function SneakPeek() {
+  const [isEnd, setIsEnd] = useState<boolean>(false);
+  const swiperRef = useRef<SwiperType | null>();
+
   return (
     <MaxWidthWrapper className="mt-24 mb-32">
-      <div className="grid grid-cols-3 gap-4"></div>
-      <div className="flex flex-col md:flex-row md:justify-between gap-10">
+      <div className="flex flex-col lg:flex-row md:justify-between gap-10">
         <div className="flex flex-col space-y-6">
           <h2 className="text-2xl font-semibold max-w-prose text-pretty leading-9">
             Deadpool & Wolverine is a 2024 American superhero film based on
@@ -37,45 +37,57 @@ function SneakPeek() {
             <span className="ml-8">Watch Stream & Trailer</span>
           </Button>
         </div>
-        <div className="w-full relative">
-          <Carousel
-            opts={{
-              align: "start",
+        <div className="relative mx-auto max-w-xs sm:max-w-lg md:max-w-xl">
+          <div
+            className="absolute left-0 w-full inset-y-0 z-10 pointer-events-none"
+            style={{
+              background:
+                "linear-gradient(to right, #080808, rgba(8, 8, 8, 0))",
             }}
-            className="relative w-full max-w-2xl"
+          />
+          <Swiper
+            modules={[A11y]}
+            breakpoints={{
+              320: {
+                slidesPerView: 1,
+                spaceBetween: 10,
+              },
+              640: {
+                slidesPerView: 1.5,
+                spaceBetween: 20,
+              },
+            }}
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
+            onSliderMove={() => {
+              if (isEnd) {
+                setIsEnd(false);
+              }
+            }}
+            onReachEnd={() => setIsEnd(true)}
           >
-            <div
-              className="absolute left-0 w-full inset-y-0 z-10 pointer-events-none"
-              style={{
-                background:
-                  "linear-gradient(to right, #080808, rgba(8, 8, 8, 0))",
-              }}
-            />
-            <CarouselContent>
-              {Array.from({ length: 4 }).map((_, index) => (
-                <CarouselItem className="sm:basis-1/2" key={index}>
-                  <div className="p-1">
-                    <Card className="rounded-[60px] overflow-hidden shadow-none border-none">
-                      <CardContent className="relative flex aspect-[345/494] items-center justify-center p-6">
-                        <Image
-                          src={`/sneak-peek/${index + 1}.png`}
-                          alt=""
-                          fill
-                          className="object-cover"
-                        />
-                      </CardContent>
-                    </Card>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <div className="absolute -bottom-12 right-20 md:-bottom-16 md:right-24">
-              <span className="text-xs md:text-sm md:mr-6 md-4">
-                SWIPE RIGHT
-              </span>
-              <CarouselNext />
-            </div>
-          </Carousel>
+            {Array.from({ length: 4 }).map((_, index) => (
+              <SwiperSlide key={index}>
+                <Card className="m-2 relative aspect-[4/5] rounded-[60px] overflow-hidden shadow-none border-none">
+                  <Image
+                    src={`/sneak-peek/${index + 1}.png`}
+                    alt=""
+                    fill
+                    className="object-cover"
+                  />
+                </Card>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          <div className="flex items-center justify-center gap-4 w-max ml-auto mt-8">
+            <span className="text-sm">SWIPE RIGHT</span>
+            <Button
+              disabled={isEnd}
+              className="size-12 rounded-full border-none bg-[#141311] hover:!bg-stone-700 focus:!bg-stone-700"
+              onClick={() => swiperRef.current?.slideNext()}
+            >
+              <ArrowRight className="size-5 md:size-6 text-deadpool-secondary" />
+            </Button>
+          </div>
         </div>
       </div>
     </MaxWidthWrapper>
