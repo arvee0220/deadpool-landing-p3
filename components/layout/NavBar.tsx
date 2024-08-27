@@ -21,7 +21,7 @@ const NavBar: React.FC = () => {
 	const [toggleMenu, setToggleMenu] = useState(false);
 
 	return (
-		<div className="w-11/12 h-[8rem] flex justify-between items-center fixed">
+		<div className="w-11/12 h-[8rem] flex justify-between items-center fixed z-10">
 			<Logo />
 
 			{/* Mobile and tablet view */}
