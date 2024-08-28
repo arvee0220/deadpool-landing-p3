@@ -66,17 +66,21 @@ function Cast() {
 			</div>
 			<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
 				{currentItems.map(({ img, castName, castRole }, idx) => (
-					<Card key={idx} className="bg-deadpool-neutral border-none">
-						<CardHeader>
-							<Image
-								src={img}
-								alt={castName}
-								height={200}
-								width={150}
-								className="w-full h-[300px] rounded-lg relative"
-							/>
+					<Card
+						key={idx}
+						className="bg-deadpool-neutral border-none flex flex-col items-center"
+					>
+						<CardHeader className="flex justify-center">
+							<div className="relative w-[200px] h-[300px]">
+								<Image
+									src={img}
+									alt={castName}
+									layout="fill"
+									className="rounded-lg object-cover"
+								/>
+							</div>
 						</CardHeader>
-						<CardContent>
+						<CardContent className="flex flex-col items-start relative w-[84.5%]">
 							<CardTitle className="text-deadpool-primary">{castName}</CardTitle>
 							<CardDescription>{castRole}</CardDescription>
 						</CardContent>
