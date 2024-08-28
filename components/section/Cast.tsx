@@ -71,6 +71,8 @@ function Cast() {
 							<Image
 								src={img}
 								alt={castName}
+								height={200}
+								width={150}
 								className="w-full h-[300px] rounded-lg relative"
 							/>
 						</CardHeader>
