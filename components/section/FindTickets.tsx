@@ -17,14 +17,14 @@ function FindTickets() {
 				</p>
 			</div>
 			<div>
-				<div className="hidden">
+				<div className="hidden lg:block">
 					Circle
 					<div>
 						pill design
 						<div>image</div>
 					</div>
 				</div>
-				<h1 className="text-8xl font-outline-primary text-transparent font-semibold">
+				<h1 className="text-8xl lg:text-[300px] font-outline-primary text-transparent font-semibold">
 					MARVEL
 				</h1>
 			</div>
