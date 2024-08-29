@@ -1,13 +1,15 @@
 import { Road_Rage } from "next/font/google";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Image from "next/image";
-import { deadpoolWolverine } from "../constants/images";
+import { deadpoolWolverine, play } from "../constants/images";
+import { Button } from "../ui/button";
+import { PlayIcon } from "lucide-react";
 
 const roadRage = Road_Rage({ subsets: ["latin"], weight: ["400"] });
 
 function FindTickets() {
 	return (
-		<div className="w-11/12 flex flex-col items-center">
+		<section className="w-11/12 flex flex-col items-center">
 			<div className="flex flex-col">
 				<h1
 					className={`${roadRage.className} text-5xl md:text-7xl lg:text-9xl text-center`}
@@ -21,7 +23,7 @@ function FindTickets() {
 				</p>
 			</div>
 			<div className="flex justify-center items-center">
-				<div className="hidden absolute xl:flex w-[700px] h-[700px] border-2 border-deadpool-body rounded-full bg-transparent items-center justify-center 2xl:-left-[12rem] 2xl:top-[1870px] xl:-left-[18rem] xl:top-[1920px]">
+				<div className="hidden absolute xl:flex w-[700px] h-[700px] border-2 border-deadpool-body rounded-full bg-transparent items-center justify-center 2xl:-left-[12rem] 2xl:top-[1780px] xl:-left-[22rem] xl:top-[1920px]">
 					<div className="hiden xl:flex justify-center xl:w-3/6 2xl:w-4/6 h-[25%] relative items-center border-2 border-deadpool-primary rounded-full bg-transparent">
 						<div className="w-[1075px] h-[100px] absolute flex items-center justify-center left-1 -mt-2 overflow-hidden">
 							<Image
@@ -36,12 +38,22 @@ function FindTickets() {
 					MARVEL
 				</h1>
 			</div>
-			<div className="flex self-end mr-[7.4%] gap-4">
-				<div>arrow</div>
-				<div>Find tickets button</div>
-				<div>Avatars</div>
+			<div className="w-full relative flex flex-col md:flex-row self-end 2xl:mr-[7.4%] gap-4 justify-center">
+				<div className="flex justify-center items-center w-3/6 relative">
+					<div>arrow</div>
+				</div>
+				<div className="w-full md:w-3/6 h-16 relative flex justify-between items-center px-2">
+					<Button className="flex justify-start items-center w-44 py-7 rounded-full text-deadpool-primary bg-[#363636] gap-3">
+						<div className="left-2 p-2 bg-deadpool-primary rounded-full">
+							<PlayIcon className="size-6 fill-black text-black" />
+						</div>
+
+						<div>Find Tickets</div>
+					</Button>
+					<div>Avatars</div>
+				</div>
 			</div>
-		</div>
+		</section>
 	);
 }
 
