@@ -42,7 +42,7 @@ function FindTickets() {
 				<div className="flex justify-center items-center w-3/6 relative">
 					<div>arrow</div>
 				</div>
-				<div className="w-full md:w-3/6 h-16 relative flex justify-between items-center px-2">
+				<div className="w-full md:w-3/6 h-16 relative flex justify-between items-center px-2 md:gap-2 xl:justify-end">
 					<Button className="flex justify-evenly items-center w-56 h-20 md:h-16 py-7 rounded-full text-deadpool-primary bg-[#363636] gap-3">
 						<div className="left-2 p-2 bg-deadpool-primary rounded-full">
 							<PlayIcon className="size-6 fill-black text-black" />
