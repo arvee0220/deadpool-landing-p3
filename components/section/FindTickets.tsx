@@ -9,7 +9,9 @@ function FindTickets() {
 	return (
 		<div className="w-11/12 flex flex-col items-center">
 			<div className="flex flex-col">
-				<h1 className={`${roadRage.className} text-5xl lg:text-9xl text-center`}>
+				<h1
+					className={`${roadRage.className} text-5xl md:text-7xl lg:text-9xl text-center`}
+				>
 					<span className="text-deadpool-accent">DEADPOOL</span> &{" "}
 					<span className="text-deadpool-secondary">WOLVERINE</span> IS JUST THE BLOODY,
 					PUERILE, HEARTFELT MOVIE WE WANTED
