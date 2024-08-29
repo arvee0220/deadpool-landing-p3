@@ -1,7 +1,7 @@
 import { Road_Rage } from "next/font/google";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Image from "next/image";
-import { deadpoolWolverine, play } from "../constants/images";
+import { deadpoolWolverine, icon1, icon2, icon3, play } from "../constants/images";
 import { Button } from "../ui/button";
 import { PlayIcon } from "lucide-react";
 
@@ -50,7 +50,20 @@ function FindTickets() {
 
 						<div>Find Tickets</div>
 					</Button>
-					<div>Avatars</div>
+					<div className="flex">
+						<Avatar>
+							<Image src={icon1} alt="Icon1" />
+							<AvatarFallback>CN</AvatarFallback>
+						</Avatar>
+						<Avatar className="-left-2">
+							<Image src={icon2} alt="Icon2" />
+							<AvatarFallback>CN</AvatarFallback>
+						</Avatar>
+						<Avatar className="-left-4">
+							<Image src={icon3} alt="Icon3" />
+							<AvatarFallback>CN</AvatarFallback>
+						</Avatar>
+					</div>
 				</div>
 			</div>
 		</section>

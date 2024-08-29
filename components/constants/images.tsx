@@ -20,6 +20,9 @@ import dafne from "@/public/cast/dafne.svg";
 import leslie from "@/public/cast/leslie.svg";
 import deadpoolWolverine from "@/public/DeadPool.png";
 import play from "@/public/play.svg";
+import icon1 from "@/public/avatar-icons/icon1.svg";
+import icon2 from "@/public/avatar-icons/icon2.svg";
+import icon3 from "@/public/avatar-icons/icon3.svg";
 
 export {
 	marvelStudio,
@@ -44,4 +47,7 @@ export {
 	leslie,
 	deadpoolWolverine,
 	play,
+	icon1,
+	icon2,
+	icon3,
 };
