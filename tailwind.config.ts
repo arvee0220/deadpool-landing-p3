@@ -19,6 +19,11 @@ const config = {
 			},
 		},
 		extend: {
+			rotate: {
+				"15": "15deg", // Custom rotation for 15 degrees
+				"45": "45deg", // Custom rotation for 45 degrees
+				"135": "135deg",
+			},
 			clipPath: {
 				"custom-shape": "polygon(67% 0, 81% 100%, 0 100%, 0 0)",
 			},
@@ -92,17 +97,7 @@ const config = {
 			},
 		},
 	},
-	plugins: [
-		require("tailwindcss-animate"),
-		function ({ addUtilities }: PluginAPI) {
-			const newUtilities = {
-				".clip-custom-shape": {
-					clipPath: "polygon(72% 0, 81% 100%, 0 100%, 0 0)",
-				},
-			};
-			addUtilities(newUtilities);
-		},
-	],
+	plugins: [require("tailwindcss-animate")],
 } satisfies Config;
 
 export default config;

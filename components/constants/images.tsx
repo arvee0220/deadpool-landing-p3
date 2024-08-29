@@ -18,6 +18,7 @@ import chris from "@/public/cast/chris.svg";
 import blake from "@/public/cast/blake.svg";
 import dafne from "@/public/cast/dafne.svg";
 import leslie from "@/public/cast/leslie.svg";
+import deadpoolWolverine from "@/public/DeadPool.png";
 
 export {
 	marvelStudio,
@@ -40,4 +41,5 @@ export {
 	blake,
 	dafne,
 	leslie,
+	deadpoolWolverine,
 };

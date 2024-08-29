@@ -1,6 +1,7 @@
 import { Road_Rage } from "next/font/google";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Image from "next/image";
+import { deadpoolWolverine } from "../constants/images";
 
 const roadRage = Road_Rage({ subsets: ["latin"], weight: ["400"] });
 
@@ -17,13 +18,19 @@ function FindTickets() {
 					by Kyle Anderson
 				</p>
 			</div>
-			<div className="flex">
-				<div className="hidden absolute lg:flex w-[700px] h-[700px] border-2 border-deadpool-body rounded-full bg-transparent items-center justify-center 2xl:-left-[12rem] 2xl:top-[1870px]">
-					<div className="hiden lg:flex justify-center w-4/6 h-[25%] relative items-center border-2 border-deadpool-primary rounded-full bg-transparent">
-						<div className="bg-deadpool w-[1075px] h-[100px] absolute clip-custom-shape left-1" />
+			<div className="flex justify-center items-center">
+				<div className="hidden absolute xl:flex w-[700px] h-[700px] border-2 border-deadpool-body rounded-full bg-transparent items-center justify-center 2xl:-left-[12rem] 2xl:top-[1870px] xl:-left-[18rem] xl:top-[1920px]">
+					<div className="hiden xl:flex justify-center xl:w-3/6 2xl:w-4/6 h-[25%] relative items-center border-2 border-deadpool-primary rounded-full bg-transparent">
+						<div className="w-[1075px] h-[100px] absolute flex items-center justify-center left-1 -mt-2 overflow-hidden">
+							<Image
+								src={deadpoolWolverine}
+								alt="Deadpool and Wolverine"
+								className="rotate-45 top-16 -left-36 relative"
+							/>
+						</div>
 					</div>
 				</div>
-				<h1 className="text-8xl lg:text-[300px] tracking-tighter font-outline-primary text-transparent font-semibold">
+				<h1 className="text-8xl lg:text-[250px] xl:text-[300px] tracking-tighter font-outline-primary text-transparent font-semibold">
 					MARVEL
 				</h1>
 			</div>
