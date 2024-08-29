@@ -30,7 +30,7 @@ function FindTickets() {
 						</div>
 					</div>
 				</div>
-				<h1 className="text-8xl lg:text-[250px] xl:text-[300px] tracking-tighter font-outline-primary text-transparent font-semibold">
+				<h1 className="text-8xl md:text-[200px] lg:text-[250px] xl:text-[300px] tracking-tighter font-outline-primary text-transparent font-semibold">
 					MARVEL
 				</h1>
 			</div>
