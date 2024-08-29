@@ -1,5 +1,6 @@
 import { Road_Rage } from "next/font/google";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import Image from "next/image";
 
 const roadRage = Road_Rage({ subsets: ["latin"], weight: ["400"] });
 
@@ -17,9 +18,9 @@ function FindTickets() {
 				</p>
 			</div>
 			<div className="flex">
-				<div className="hidden absolute lg:flex w-[600px] h-[600px] border-2 border-deadpool-body rounded-full bg-transparent items-center justify-center -left-3 top-[1880px]">
+				<div className="hidden absolute lg:flex w-[700px] h-[700px] border-2 border-deadpool-body rounded-full bg-transparent items-center justify-center 2xl:-left-[12rem] 2xl:top-[1870px]">
 					<div className="hiden lg:flex justify-center w-4/6 h-[25%] relative items-center border-2 border-deadpool-primary rounded-full bg-transparent">
-						<div></div>
+						<div className="bg-deadpool w-[1075px] h-[100px] absolute clip-custom-shape left-1" />
 					</div>
 				</div>
 				<h1 className="text-8xl lg:text-[300px] tracking-tighter font-outline-primary text-transparent font-semibold">

@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { PluginAPI } from "tailwindcss/types/config";
 
 const config = {
 	darkMode: ["class"],
@@ -19,7 +20,7 @@ const config = {
 		},
 		extend: {
 			clipPath: {
-				"custom-shape": "polygon(50% 0%, 0% 100%, 100% 100%)",
+				"custom-shape": "polygon(67% 0, 81% 100%, 0 100%, 0 0)",
 			},
 			backgroundImage: {
 				deadpool: "url(/DeadPool.png)",
@@ -91,7 +92,17 @@ const config = {
 			},
 		},
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [
+		require("tailwindcss-animate"),
+		function ({ addUtilities }: PluginAPI) {
+			const newUtilities = {
+				".clip-custom-shape": {
+					clipPath: "polygon(72% 0, 81% 100%, 0 100%, 0 0)",
+				},
+			};
+			addUtilities(newUtilities);
+		},
+	],
 } satisfies Config;
 
 export default config;
