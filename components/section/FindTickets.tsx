@@ -16,15 +16,13 @@ function FindTickets() {
 					by Kyle Anderson
 				</p>
 			</div>
-			<div>
-				<div className="hidden lg:block">
-					Circle
-					<div>
-						pill design
-						<div>image</div>
+			<div className="flex">
+				<div className="hidden absolute lg:flex w-[600px] h-[600px] border-2 border-deadpool-body rounded-full bg-transparent items-center justify-center -left-3 top-[1880px]">
+					<div className="hiden lg:flex justify-center w-4/6 h-[25%] relative items-center border-2 border-deadpool-primary rounded-full bg-transparent">
+						<div></div>
 					</div>
 				</div>
-				<h1 className="text-8xl lg:text-[300px] font-outline-primary text-transparent font-semibold">
+				<h1 className="text-8xl lg:text-[300px] tracking-tighter font-outline-primary text-transparent font-semibold">
 					MARVEL
 				</h1>
 			</div>

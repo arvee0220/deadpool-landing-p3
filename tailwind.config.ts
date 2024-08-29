@@ -18,6 +18,9 @@ const config = {
 			},
 		},
 		extend: {
+			clipPath: {
+				"custom-shape": "polygon(50% 0%, 0% 100%, 100% 100%)",
+			},
 			backgroundImage: {
 				deadpool: "url(/DeadPool.png)",
 				"deadpool-dark":
