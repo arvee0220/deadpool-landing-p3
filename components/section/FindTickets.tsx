@@ -38,12 +38,12 @@ function FindTickets() {
 					MARVEL
 				</h1>
 			</div>
-			<div className="w-full relative flex flex-col md:flex-row self-end 2xl:mr-[7.4%] gap-4 justify-center">
+			<div className="w-full relative flex flex-col md:flex-row self-end 2xl:mr-[7.4%] gap-4 justify-center items-center">
 				<div className="flex justify-center items-center w-3/6 relative">
 					<div>arrow</div>
 				</div>
 				<div className="w-full md:w-3/6 h-16 relative flex justify-between items-center px-2">
-					<Button className="flex justify-start items-center w-44 py-7 rounded-full text-deadpool-primary bg-[#363636] gap-3">
+					<Button className="flex justify-evenly items-center w-56 h-20 md:h-16 py-7 rounded-full text-deadpool-primary bg-[#363636] gap-3">
 						<div className="left-2 p-2 bg-deadpool-primary rounded-full">
 							<PlayIcon className="size-6 fill-black text-black" />
 						</div>
