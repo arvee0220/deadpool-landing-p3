@@ -23,8 +23,8 @@ function FindTickets() {
 				</p>
 			</div>
 			<div className="flex justify-center items-center">
-				<div className="hidden absolute xl:flex w-[700px] h-[700px] border-2 border-deadpool-body rounded-full bg-transparent items-center justify-center 2xl:-left-[12rem] 2xl:top-[1780px] xl:-left-[22rem] xl:top-[1920px]">
-					<div className="hiden xl:flex justify-center xl:w-3/6 2xl:w-4/6 h-[25%] relative items-center border-2 border-deadpool-primary rounded-full bg-transparent">
+				<div className="hidden absolute xl:flex w-[700px] h-[700px] border-2 border-deadpool-body rounded-full bg-transparent items-center justify-center 2xl:-left-[20rem] 2xl:top-[1780px] xl:-left-[22rem] xl:top-[1920px]">
+					<div className="hiden xl:flex justify-center xl:w-3/6 2xl:w-3/6 h-[25%] relative items-center border-2 border-deadpool-primary rounded-full bg-transparent">
 						<div className="w-[1075px] h-[100px] absolute flex items-center justify-center left-1 -mt-2 overflow-hidden">
 							<Image
 								src={deadpoolWolverine}
