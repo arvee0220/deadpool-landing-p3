@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { PluginAPI } from "tailwindcss/types/config";
 
 const config = {
 	darkMode: ["class"],
@@ -18,6 +19,14 @@ const config = {
 			},
 		},
 		extend: {
+			rotate: {
+				"15": "15deg", // Custom rotation for 15 degrees
+				"45": "45deg", // Custom rotation for 45 degrees
+				"135": "135deg",
+			},
+			clipPath: {
+				"custom-shape": "polygon(67% 0, 81% 100%, 0 100%, 0 0)",
+			},
 			backgroundImage: {
 				deadpool: "url(/DeadPool.png)",
 				"deadpool-dark":

@@ -10,6 +10,7 @@ import {
 	netflix,
 } from "../constants/images";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 type Images = {
 	source: StaticImageData;
@@ -78,7 +79,9 @@ function HeroSection() {
 						variant={"default"}
 						className="w-16 h-20 md:h-24 lg:h-28 xl:h-16 p-0 rounded-full flex items-center justify-center"
 					>
-						<MoveDown className="text-deadpool-secondary" size={25} />
+						<Link href="#sneakpeek">
+							<MoveDown className="text-deadpool-secondary" size={25} />
+						</Link>
 					</Button>
 					<p className="text-center">Scroll Down</p>
 				</div>
