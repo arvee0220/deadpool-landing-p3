@@ -18,7 +18,7 @@ function FindTickets() {
 					<span className="text-deadpool-secondary">WOLVERINE</span> IS JUST THE BLOODY,
 					PUERILE, HEARTFELT MOVIE WE WANTED
 				</h1>
-				<p className="text-right text-deadpool-body relative self-end mr-[7.4%]">
+				<p className="text-left md:text-right text-deadpool-body relative self-start md:self-end md:mr-[7.4%]">
 					by Kyle Anderson
 				</p>
 			</div>
@@ -40,7 +40,7 @@ function FindTickets() {
 			</div>
 			<div className="w-full relative flex flex-col md:flex-row md:justify-end items-center space-y-4 lg:space-y-0 md:gap-4">
 				<div className="flex justify-center items-center md:justify-end w-full md:w-auto">
-					<Image src={arrow} alt="Arrow" className="w-full" />
+					<Image src={arrow} alt="Arrow" className="w-full relative" />
 				</div>
 
 				<div className="flex justify-center md:justify-end w-full md:w-auto space-x-2">
