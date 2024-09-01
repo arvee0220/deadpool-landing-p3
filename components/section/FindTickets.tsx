@@ -1,7 +1,7 @@
 import { Road_Rage } from "next/font/google";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Image from "next/image";
-import { deadpoolWolverine, icon1, icon2, icon3, play } from "../constants/images";
+import { arrow, deadpoolWolverine, icon1, icon2, icon3, play } from "../constants/images";
 import { Button } from "../ui/button";
 import { PlayIcon } from "lucide-react";
 
@@ -38,19 +38,20 @@ function FindTickets() {
 					MARVEL
 				</h1>
 			</div>
-			<div className="w-full relative flex flex-col md:flex-row self-end 2xl:mr-[7.4%] gap-4 justify-center items-center">
-				<div className="flex justify-center items-center w-3/6 relative">
-					<div>arrow</div>
+			<div className="w-full relative flex flex-col md:flex-row md:justify-end items-center space-y-4 lg:space-y-0 md:gap-4">
+				<div className="flex justify-center items-center md:justify-end w-full md:w-auto">
+					<Image src={arrow} alt="Arrow" className="w-full" />
 				</div>
-				<div className="w-full md:w-3/6 h-16 relative flex justify-between items-center px-2 md:gap-2 xl:justify-end">
-					<Button className="flex justify-evenly items-center w-56 h-20 md:h-16 py-7 rounded-full text-deadpool-primary bg-[#363636] gap-3">
+
+				<div className="flex justify-center md:justify-end w-full md:w-auto space-x-2">
+					<Button className="flex justify-evenly items-center w-56 h-20 md:h-16 py-7 rounded-full text-deadpool-primary bg-[#363636] gap-3 justify-self-end">
 						<div className="left-2 p-2 bg-deadpool-primary rounded-full">
 							<PlayIcon className="size-6 fill-black text-black" />
 						</div>
 
 						<div>Find Tickets</div>
 					</Button>
-					<div className="flex">
+					<div className="flex justify-center justify-self-center items-center">
 						<Avatar>
 							<Image src={icon1} alt="Icon1" />
 							<AvatarFallback>CN</AvatarFallback>
