@@ -2,7 +2,7 @@
 import React, { useRef, useState } from "react";
 import MaxWidthWrapper from "../layout/MaxWidthWrapper";
 import { Button } from "../ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Circle } from "lucide-react";
 import { Swiper as SwiperType } from "swiper/types";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y } from "swiper/modules";
@@ -189,10 +189,12 @@ function MarvelTalk() {
                     <AvatarFallback>CN</AvatarFallback>
                   </Avatar>
                   <div className="flex flex-col justify-center w-full">
-                    <CardHeader className="flex-row items-center gap-4 px-0 py-2">
+                    <CardHeader className="flex-row items-center gap-1.5 md:gap-2 px-0 py-2">
                       <CardTitle className="text-xl md:text-2xl text-deadpool-secondary">
                         {v.author}
                       </CardTitle>
+
+                      <Circle className="size-1.5 text-[#3e3b36] !fill-[#3e3b36]" />
                       <CardDescription>{v.timeStamp}</CardDescription>
                     </CardHeader>
                     <CardContent className="p-0 w-full">
@@ -243,16 +245,17 @@ function MarvelTalk() {
           >
             {columns[1].map((v, index) => (
               <SwiperSlide key={index}>
-                <Card className="bg-[#141311] h-52 flex items-center justify-center space-x-4 m-2 w-full rounded-lg overflow-hidden shadow-none border-none px-4 py-2 ">
+                <Card className="bg-[#141311] h-56 flex items-center justify-center space-x-4 m-2 w-full rounded-lg overflow-hidden shadow-none border-none px-4 py-2 ">
                   <Avatar className="size-14">
                     <AvatarImage className="object-cover" src={v.imgSrc} />
                     <AvatarFallback>CN</AvatarFallback>
                   </Avatar>
                   <div className="flex flex-col justify-center w-full">
-                    <CardHeader className="flex-row items-center gap-4 px-0 py-2">
+                    <CardHeader className="flex-row items-center gap-1.5 md:gap-2 px-0 py-2">
                       <CardTitle className="text-xl md:text-2xl text-deadpool-secondary">
                         {v.author}
                       </CardTitle>
+                      <Circle className="size-1.5 text-[#3e3b36] !fill-[#3e3b36]" />
                       <CardDescription>{v.timeStamp}</CardDescription>
                     </CardHeader>
                     <CardContent className="p-0 w-full">
