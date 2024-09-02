@@ -20,10 +20,10 @@ const navMenu: navText[] = [
 const NavBar: React.FC = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
 
-  return (
-    <section className="w-screen flex justify-center items-center fixed z-50">
-      <div className="w-11/12 h-[8rem] flex justify-between items-center">
-        <Logo />
+	return (
+		<section className="w-screen flex justify-center items-center fixed z-50">
+			<div className="w-11/12 h-[8rem] flex justify-between items-center">
+				<Logo />
 
         {/* Mobile and tablet view */}
         <div className="md:w-6/12 md:hidden flex items-center px-3 gap-5 md:px-1">

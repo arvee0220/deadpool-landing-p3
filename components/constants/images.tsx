@@ -23,6 +23,7 @@ import play from "@/public/play.svg";
 import icon1 from "@/public/avatar-icons/icon1.svg";
 import icon2 from "@/public/avatar-icons/icon2.svg";
 import icon3 from "@/public/avatar-icons/icon3.svg";
+import arrow from "@/public/arrow.svg";
 
 export {
 	marvelStudio,
@@ -50,4 +51,5 @@ export {
 	icon1,
 	icon2,
 	icon3,
+	arrow,
 };
