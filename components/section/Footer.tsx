@@ -152,9 +152,6 @@ export default function Footer() {
         <Button variant={"secondary"} className="rounded-full" size={"lg"}>
           Get Started
         </Button>
-        {/* <button className="bg-deadpool-primary px-6 py-3 rounded-full border-border text-deadpool-neutral">
-          Get Started
-        </button> */}
       </div>
     </div>
   );
@@ -215,7 +212,7 @@ export default function Footer() {
   );
 
   return (
-    <div className="w-full flex flex-col text-deadpool-body bg-deadpool-neutral tracking-tighter px-[25px] md:px-[75px] py-7">
+    <div className="w-screen flex flex-col text-deadpool-body bg-deadpool-neutral tracking-tighter px-[25px] lg:px-[75px] py-7">
       {subscribeWrapper}
       <div className="w-full flex flex-col gap-24 xl:gap-0 xl:flex-row justify-between mt-32">
         {siteDetails}
