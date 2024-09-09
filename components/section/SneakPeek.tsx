@@ -21,11 +21,11 @@ function SneakPeek() {
       id="sneakpeek"
     >
       <div className="flex flex-col space-y-6">
-        <h2 className="text-2xl font-semibold max-w-prose text-pretty leading-9">
+        <h2 className="text-4xl font-semibold max-w-prose text-pretty leading-[54px] tracking-tighter">
           Deadpool & Wolverine is a 2024 American superhero film based on Marvel
           Comics 
         </h2>
-        <p className="text-sm text-stone-300 -tracking-tighter leading-5 text-pretty max-w-prose">
+        <p className="text-xl text-stone-300 text-pretty max-w-prose leading-[30px] tracking-tighter">
           Featuring the characters Deadpool and Wolverine, produced by Marvel
           Studios. The film received generally positive reviews from critics and
           has grossed over $211 million worldwide.
@@ -33,7 +33,7 @@ function SneakPeek() {
 
         <Button
           size={"lg"}
-          className="relative rounded-full bg-[#363636] w-max text-xs font-light py-7"
+          className="relative rounded-full bg-[#363636] w-max font-normal py-7"
         >
           <div className="absolute left-2 p-2 bg-deadpool-primary rounded-full">
             <PlayIcon className="size-6 fill-black text-black" />
@@ -75,6 +75,7 @@ function SneakPeek() {
                   src={`/sneak-peek/${index + 1}.png`}
                   alt=""
                   fill
+                  sizes="(max-width: 1280px) 345px, 495px"
                   className="object-cover"
                 />
               </Card>
