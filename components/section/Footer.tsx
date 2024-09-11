@@ -10,6 +10,7 @@ import {
   FaXTwitter,
 } from "react-icons/fa6";
 import { Button } from "../ui/button";
+import MaxWidthWrapper from "../layout/MaxWidthWrapper";
 
 type LogoLinkType = {
   name: string;
@@ -149,7 +150,10 @@ export default function Footer() {
           placeholder="Your Email"
           className="w-full md:w-[333px] h-12 border-b border-deadpool-primary bg-transparent px-3 py-[21px]"
         />
-        <Button variant={"secondary"} className="rounded-full" size={"lg"}>
+        <Button
+          variant={"secondary"}
+          className="rounded-full"
+          size={"lg"}>
           Get Started
         </Button>
       </div>
@@ -165,13 +169,12 @@ export default function Footer() {
         cinematic trends.
       </p>
       <div className="flex gap-[34px]">
-        {logoLinks.map((logo) => (
+        {logoLinks.map(logo => (
           <Link
             href={logo.link}
             target="_blank"
             key={logo.name}
-            className="text-deadpool-secondary text-2xl"
-          >
+            className="text-deadpool-secondary text-2xl">
             {logo.icon}
           </Link>
         ))}
@@ -180,12 +183,16 @@ export default function Footer() {
   );
 
   const contactLinksWrapper = (
-    <div className="flex flex-col gap-5" id="footer">
+    <div
+      className="flex flex-col gap-5"
+      id="footer">
       <h1 className="font-semibold text-deadpool-primary">
         {contactLinks.linkHeader}
       </h1>
       {contactLinks.contacts.map((item, index) => (
-        <div key={index} className="flex gap-4 items-center">
+        <div
+          key={index}
+          className="flex gap-4 items-center">
           <span className="text-deadpool-secondary text-2xl">{item.icon}</span>
           <span>{item.details}</span>
         </div>
@@ -196,12 +203,16 @@ export default function Footer() {
   const siteDirectory = (
     <div className="grid grid-cols-3 lg:grid-cols-4 gap-x-10 xl:gap-x-0 gap-y-24">
       {footerLinks.map((item, index) => (
-        <div key={index} className="flex flex-col gap-5">
+        <div
+          key={index}
+          className="flex flex-col gap-5">
           <h1 className="font-semibold text-deadpool-primary">
             {item.linkHeader}
           </h1>
-          {item.links.map((link) => (
-            <Link href={link.link} key={link.name}>
+          {item.links.map(link => (
+            <Link
+              href={link.link}
+              key={link.name}>
               {link.name}
             </Link>
           ))}
@@ -212,15 +223,17 @@ export default function Footer() {
   );
 
   return (
-    <div className="w-full flex flex-col text-deadpool-body bg-deadpool-neutral tracking-tighter px-[25px] lg:px-[75px] py-7">
-      {subscribeWrapper}
-      <div className="w-full flex flex-col gap-24 xl:gap-0 xl:flex-row justify-between mt-32">
-        {siteDetails}
-        {siteDirectory}
+    <MaxWidthWrapper>
+      <div className="w-full flex flex-col text-deadpool-body bg-deadpool-neutral tracking-tighter px-[25px] lg:px-[75px] py-7">
+        {subscribeWrapper}
+        <div className="w-full flex flex-col gap-24 xl:gap-0 xl:flex-row justify-between mt-32">
+          {siteDetails}
+          {siteDirectory}
+        </div>
+        <h1 className="w-full text-center mt-20">
+          All Rights Reserved. NightCinema
+        </h1>
       </div>
-      <h1 className="w-full text-center mt-20">
-        All Rights Reserved. NightCinema
-      </h1>
-    </div>
+    </MaxWidthWrapper>
   );
 }
