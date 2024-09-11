@@ -17,11 +17,12 @@ const roadRage = Road_Rage({ subsets: ["latin"], weight: ["400"] });
 
 function FindTickets() {
   return (
-    <MaxWidthWrapper>
+    <MaxWidthWrapper className="2xl:overflow-hidden">
       <section className="w-11/12 mx-auto flex flex-col items-center">
         <div className="flex flex-col">
           <h1
-            className={`${roadRage.className} text-5xl md:text-7xl lg:text-9xl text-center`}>
+            className={`${roadRage.className} text-5xl md:text-7xl lg:text-9xl text-center`}
+          >
             <span className="text-deadpool-accent">DEADPOOL</span> &{" "}
             <span className="text-deadpool-secondary">WOLVERINE</span> IS JUST
             THE BLOODY, PUERILE, HEARTFELT MOVIE WE WANTED
@@ -30,9 +31,9 @@ function FindTickets() {
             by Kyle Anderson
           </p>
         </div>
-        <div className="flex justify-center items-center">
-          <div className="hidden absolute xl:flex w-[700px] h-[700px] border-2 border-deadpool-body rounded-full bg-transparent items-center justify-center 2xl:-left-[20rem] 2xl:top-[1780px] xl:-left-[22rem] xl:top-[1920px]">
-            <div className="hidden xl:flex justify-center xl:w-3/6 2xl:w-3/6 h-[25%] relative items-center border-2 border-deadpool-primary rounded-full bg-transparent">
+        <div className="flex justify-center items-center relative">
+          <div className="hidden absolute xl:flex w-[700px] h-[700px] -translate-x-12 border-2 border-[#3e3b36] rounded-full bg-transparent items-center justify-center -left-[460px]">
+            <div className="hidden xl:flex justify-center xl:w-3/6 h-[25%] -translate-x-20 relative items-center border-4 border-deadpool-primary rounded-full bg-transparent">
               <div className="w-[1075px] h-[100px] absolute flex items-center justify-center left-1 -mt-2 overflow-hidden">
                 <Image
                   src={deadpoolWolverine}
@@ -48,11 +49,7 @@ function FindTickets() {
         </div>
         <div className="w-full relative flex flex-col md:flex-row md:justify-end items-center space-y-4 lg:space-y-0 md:gap-4">
           <div className="flex justify-center items-center md:justify-end w-full md:w-auto">
-            <Image
-              src={arrow}
-              alt="Arrow"
-              className="w-full relative"
-            />
+            <Image src={arrow} alt="Arrow" className="w-full relative" />
           </div>
 
           <div className="flex justify-center md:justify-end w-full md:w-auto space-x-2">
@@ -65,24 +62,15 @@ function FindTickets() {
             </Button>
             <div className="flex justify-center justify-self-center items-center">
               <Avatar>
-                <Image
-                  src={icon1}
-                  alt="Icon1"
-                />
+                <Image src={icon1} alt="Icon1" />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
               <Avatar className="-left-2">
-                <Image
-                  src={icon2}
-                  alt="Icon2"
-                />
+                <Image src={icon2} alt="Icon2" />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
               <Avatar className="-left-4">
-                <Image
-                  src={icon3}
-                  alt="Icon3"
-                />
+                <Image src={icon3} alt="Icon3" />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
             </div>

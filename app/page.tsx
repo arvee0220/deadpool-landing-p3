@@ -12,8 +12,8 @@ export default function Home() {
     <main className="w-full h-full">
       <NavBar />
       <HeroSection />
-      <SneakPeek />
-      <FindTickets />
+      {/* <SneakPeek /> */}
+      {/* <FindTickets /> */}
       <MarvelTalk />
       <ArticlesToRead />
       {/* <Cast /> */}

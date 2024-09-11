@@ -18,7 +18,8 @@ function SneakPeek() {
     <MaxWidthWrapper>
       <div
         className="flex flex-col lg:flex-row md:justify-between gap-10 p-[25px] lg:pl-[75px] mt-24 mb-32"
-        id="sneakpeek">
+        id="sneakpeek"
+      >
         <div className="flex flex-col space-y-6">
           <h2 className="text-4xl font-semibold max-w-prose text-pretty leading-[54px] tracking-tighter">
             Deadpool & Wolverine is a 2024 American superhero film based on
@@ -32,7 +33,8 @@ function SneakPeek() {
 
           <Button
             size={"lg"}
-            className="relative rounded-full bg-[#363636] w-max font-normal py-7">
+            className="relative rounded-full bg-[#363636] w-max font-normal py-7"
+          >
             <div className="absolute left-2 p-2 bg-deadpool-primary rounded-full">
               <PlayIcon className="size-6 fill-black text-black" />
             </div>
@@ -59,13 +61,14 @@ function SneakPeek() {
                 spaceBetween: 20,
               },
             }}
-            onSwiper={swiper => (swiperRef.current = swiper)}
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
             onSliderMove={() => {
               if (isEnd) {
                 setIsEnd(false);
               }
             }}
-            onReachEnd={() => setIsEnd(true)}>
+            onReachEnd={() => setIsEnd(true)}
+          >
             {Array.from({ length: 4 }).map((_, index) => (
               <SwiperSlide key={index}>
                 <Card className="m-2 relative aspect-[4/5] rounded-[60px] overflow-hidden shadow-none border-none">
@@ -85,7 +88,8 @@ function SneakPeek() {
             <Button
               disabled={isEnd}
               className="size-12 rounded-full border-none bg-[#141311] hover:!bg-stone-700 focus:!bg-stone-700"
-              onClick={() => swiperRef.current?.slideNext()}>
+              onClick={() => swiperRef.current?.slideNext()}
+            >
               <ArrowRight className="size-5 md:size-6 text-deadpool-secondary" />
             </Button>
           </div>
