@@ -28,6 +28,7 @@ import {
   shioli,
 } from "../constants/images";
 import { useState } from "react";
+import MaxWidthWrapper from "../layout/MaxWidthWrapper";
 
 type CastProps = {
   img: StaticImageData;
@@ -63,49 +64,53 @@ function Cast() {
   const totalPages = Math.ceil(castMembers.length / itemsPerPage);
 
   return (
-    <section
-      className="w-11/12 flex flex-col items-center justify-center mx-auto"
-      id="cast"
-    >
-      <div className="self-end text-right mb-8 max-w-3xl ml-auto pr-5">
-        <h1 className="text-3xl mb-2">Deadpool & Wolverine Cast</h1>
-        <p>
-          Meet the Star-Studded Lineup Bringing Your Favorite Characters to
-          Life. Explore the actors behind this iconic Marvel duo and their roles
-          in the film.
-        </p>
-      </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-        {currentItems.map(({ img, castName, castRole }, idx) => (
-          <Card
-            key={idx}
-            className="bg-deadpool-neutral border-none flex flex-col items-center"
-          >
-            <CardHeader className="flex justify-center">
-              <div className="relative w-[200px] h-[300px]">
-                <Image
-                  src={img}
-                  alt={castName}
-                  layout="fill"
-                  className="rounded-lg object-cover"
-                />
-              </div>
-            </CardHeader>
-            <CardContent className="flex flex-col items-start relative w-[84.5%]">
-              <CardTitle className="text-deadpool-primary">
-                {castName}
-              </CardTitle>
-              <CardDescription>{castRole}</CardDescription>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-      <Paginate
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={pageChangeHandler}
-      />
-    </section>
+    <MaxWidthWrapper>
+      <section
+        className="w-11/12 flex flex-col items-center justify-center mx-auto"
+        id="cast"
+      >
+        <div className="self-end ld:text-right mb-8 max-w-3xl ml-auto pr-5">
+          <h1 className="text-4xl mb-2 font-semibold tracking-tighter">
+            Deadpool & Wolverine Cast
+          </h1>
+          <p className="tracking-tighter">
+            Meet the Star-Studded Lineup Bringing Your Favorite Characters to
+            Life. Explore the actors behind this iconic Marvel duo and their
+            roles in the film.
+          </p>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 overflow-hidden">
+          {currentItems.map(({ img, castName, castRole }, idx) => (
+            <Card
+              key={idx}
+              className="bg-deadpool-neutral border-none flex flex-col items-center"
+            >
+              <CardHeader className="flex justify-center">
+                <div className="relative w-[200px] h-[300px]">
+                  <Image
+                    src={img}
+                    alt={castName}
+                    layout="fill"
+                    className="rounded-lg object-cover"
+                  />
+                </div>
+              </CardHeader>
+              <CardContent className="flex flex-col items-start relative w-[84.5%]">
+                <CardTitle className="text-deadpool-primary">
+                  {castName}
+                </CardTitle>
+                <CardDescription>{castRole}</CardDescription>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+        <Paginate
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={pageChangeHandler}
+        />
+      </section>
+    </MaxWidthWrapper>
   );
 }
 

@@ -4,6 +4,7 @@ import { Moon, Phone, X } from "lucide-react";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import Logo from "../elements/Logo";
+import MaxWidthWrapper from "./MaxWidthWrapper";
 
 interface navText {
   href: string;
@@ -21,7 +22,7 @@ const NavBar: React.FC = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
 
   return (
-    <section className="w-full flex justify-center items-center fixed z-50">
+    <section className="w-full max-w-screen-2xl mx-auto flex justify-center items-center fixed z-50">
       <div className="w-11/12 h-[8rem] flex justify-between items-center">
         <Logo />
 
@@ -63,7 +64,7 @@ const NavBar: React.FC = () => {
         </div>
 
         {/* Mid to larger viewport */}
-        <div className="hidden w-6/12 md:flex md:justify-evenly lg:justify-end items-center pr-2">
+        <div className="hidden w-6/12 mx-auto max-w-screen-2xl md:flex md:justify-evenly lg:justify-end items-center mr-3">
           <ul className="xl:w-6/12 flex flex-row justify-between md:gap-4 xl:gap-3 p-3">
             {navMenu.map(({ href, text }, idx) => (
               <li

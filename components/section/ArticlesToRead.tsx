@@ -9,6 +9,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "../elements/pagination.css";
 import RoundButton from "../elements/RoundButton";
+import MaxWidthWrapper from "../layout/MaxWidthWrapper";
 
 export default function ArticlesToRead() {
   const articles = [
@@ -37,6 +38,14 @@ export default function ArticlesToRead() {
       thumbnail: article3Img,
       alt: "Hugh Jackman and Ryan Reynolds seemingly pointing at someone",
     },
+    {
+      title: "Why One Major DEADPOOL & WOLVERINE Cameo Seemed Impossible",
+      description:
+        "Deadpool & Wolverine is a delightfully dirty superhero moview with multiversal mishaps. It's also a very clever commentary on the transience of franchise movies.",
+      authors: ["Kyle Anderson"],
+      thumbnail: article2Img,
+      alt: "Deadpool and Wolverine close-up shot",
+    },
   ];
 
   const articlesToReadWrapper = (
@@ -60,13 +69,15 @@ export default function ArticlesToRead() {
         width: "100%",
         maxWidth: "100%",
       }}
-      spaceBetween={0}
+      spaceBetween={30}
       breakpoints={{
         320: { slidesPerView: 1 },
         640: { slidesPerView: 1.65 },
-        960: { slidesPerView: 2.05 },
-        1024: { slidesPerView: 2.25 },
-        1280: { slidesPerView: 3.25 },
+        768: { slidesPerView: 1.95 },
+        960: { slidesPerView: 2.5 },
+        1024: { slidesPerView: 2 },
+        1280: { slidesPerView: 2.5 },
+        1440: { slidesPerView: 3 },
       }}
       navigation={{
         prevEl: ".custom-prev",
@@ -83,11 +94,11 @@ export default function ArticlesToRead() {
     >
       {articles.map((item, index) => (
         <SwiperSlide key={index}>
-          <div className="w-[350px] flex flex-col gap-5 mb-9">
+          <div className="w-[350px] lg:w-[415px] flex flex-col gap-5 mb-9">
             <Image
               src={item.thumbnail}
               alt={item.alt}
-              className="object-cover rounded-2xl w-[350px] h-[260px]"
+              className="object-cover rounded-2xl w-[350px] h-[260px] lg:w-[415px] lg:h-[275px]"
             />
             <div className="flex flex-col gap-[15px]">
               <h1 className="text-deadpool-secondary text-2xl font-semibold">
@@ -129,12 +140,14 @@ export default function ArticlesToRead() {
   );
 
   return (
-    <div
-      className="w-full flex flex-col text-deadpool-primary px-[25px] lg:px-[75px] py-7 tracking-tighter gap-[22px] lg:gap-7"
-      id="article"
-    >
-      {articlesToReadWrapper}
-      {articlesCarousel}
-    </div>
+    <MaxWidthWrapper>
+      <div
+        className="w-full flex flex-col text-deadpool-primary px-[25px] lg:px-[75px] py-7 tracking-tighter gap-[22px] lg:gap-7"
+        id="article"
+      >
+        {articlesToReadWrapper}
+        {articlesCarousel}
+      </div>
+    </MaxWidthWrapper>
   );
 }

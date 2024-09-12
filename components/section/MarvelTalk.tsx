@@ -124,6 +124,7 @@ function MarvelTalk() {
   const columns = splitArray(MARVEL_TALK, 2);
 
   return (
+<<<<<<< HEAD
     <MaxWidthWrapper className="max-w-screen-2xl">
       <div
         id="marveltalk"
@@ -134,6 +135,17 @@ function MarvelTalk() {
             Marvel&apos;s Talk
           </h1>
           <p className="text-xs md:text-sm font-light -tracking-tighter">
+=======
+    <MaxWidthWrapper>
+      <div
+        id="marveltalk"
+        className="w-full mt-24 mb-10 space-y-4 md:space-y-6 md:my-24 xl:mb-16 xl:mt-44 px-[25px] lg:px-[75px]">
+        <div className="space-y-1.5 md:space-y-2">
+          <h1 className="tracking-tighter text-4xl font-semibold">
+            Marvel&apos;s Talk
+          </h1>
+          <p className="tracking-tighter">
+>>>>>>> d80d59a2e56d0c63435f731e41c54da4519db827
             Your source for the latest in Marvel Cinematics.
           </p>
         </div>
@@ -158,6 +170,10 @@ function MarvelTalk() {
             }}
           />
           <Swiper
+<<<<<<< HEAD
+=======
+            className=""
+>>>>>>> d80d59a2e56d0c63435f731e41c54da4519db827
             modules={[A11y]}
             breakpoints={{
               320: {
@@ -176,6 +192,7 @@ function MarvelTalk() {
                 slidesPerView: 3,
                 spaceBetween: 20,
               },
+<<<<<<< HEAD
             }}
           >
             {columns[0].map((v, index) => (
@@ -188,14 +205,39 @@ function MarvelTalk() {
                   <div className="flex flex-col justify-center w-full">
                     <CardHeader className="flex-row items-center gap-1.5 md:gap-2 px-0 py-2">
                       <CardTitle className="text-xl md:text-2xl text-deadpool-secondary">
+=======
+            }}>
+            {columns[0].map((v, index) => (
+              <SwiperSlide key={index}>
+                <Card className="bg-[#141311] h-48 flex items-center justify-center space-x-4 m-2 w-auto max-w-[450px] rounded-lg shadow-none border-none px-4 py-5">
+                  <Avatar className="size-[60px]">
+                    <AvatarImage
+                      className="object-cover"
+                      src={v.imgSrc}
+                    />
+                    <AvatarFallback>CN</AvatarFallback>
+                  </Avatar>
+                  <div className="flex flex-col justify-center flex-1">
+                    <CardHeader className="flex-row items-center gap-1.5 md:gap-2 px-0 py-2">
+                      <CardTitle className="text-2xl text-deadpool-secondary tracking-tighter font-semibold">
+>>>>>>> d80d59a2e56d0c63435f731e41c54da4519db827
                         {v.author}
                       </CardTitle>
 
                       <Circle className="size-1.5 text-[#3e3b36] !fill-[#3e3b36]" />
+<<<<<<< HEAD
                       <CardDescription>{v.timeStamp}</CardDescription>
                     </CardHeader>
                     <CardContent className="p-0 w-full">
                       <p className="text-white text-pretty text-xs md:text-sm -tracking-tighter">
+=======
+                      <CardDescription className="font-semibold tracking-tighter">
+                        {v.timeStamp}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent className="p-0 w-auto">
+                      <p className="text-[#F3F3F3] text-pretty w-auto tracking-tighter line-clamp-5">
+>>>>>>> d80d59a2e56d0c63435f731e41c54da4519db827
                         {v.content}
                       </p>
                     </CardContent>
@@ -238,6 +280,7 @@ function MarvelTalk() {
                 slidesPerView: 3.4,
                 spaceBetween: 20,
               },
+<<<<<<< HEAD
             }}
           >
             {columns[1].map((v, index) => (
@@ -257,6 +300,31 @@ function MarvelTalk() {
                     </CardHeader>
                     <CardContent className="p-0 w-full">
                       <p className="text-white text-pretty text-xs md:text-sm -tracking-tighter">
+=======
+            }}>
+            {columns[1].map((v, index) => (
+              <SwiperSlide key={index}>
+                <Card className="bg-[#141311] h-48 flex items-center justify-center space-x-4 m-2 w-auto rounded-lg shadow-none border-none px-4 py-5">
+                  <Avatar className="size-[60px]">
+                    <AvatarImage
+                      className="object-cover"
+                      src={v.imgSrc}
+                    />
+                    <AvatarFallback>CN</AvatarFallback>
+                  </Avatar>
+                  <div className="flex flex-col justify-center w-auto flex-1">
+                    <CardHeader className="flex-row items-center gap-1.5 md:gap-2 px-0 py-2">
+                      <CardTitle className="text-2xl text-deadpool-secondary tracking-tighter font-semibold">
+                        {v.author}
+                      </CardTitle>
+                      <Circle className="size-1.5 text-[#3e3b36] !fill-[#3e3b36]" />
+                      <CardDescription className="font-semibold tracking-tighter">
+                        {v.timeStamp}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent className="p-0 w-auto">
+                      <p className="text-[#F3F3F3] line-clamp-5 text-pretty tracking-tighter">
+>>>>>>> d80d59a2e56d0c63435f731e41c54da4519db827
                         {v.content}
                       </p>
                     </CardContent>
