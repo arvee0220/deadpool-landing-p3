@@ -67,7 +67,8 @@ function Cast() {
     <MaxWidthWrapper>
       <section
         className="w-11/12 flex flex-col items-center justify-center mx-auto"
-        id="cast">
+        id="cast"
+      >
         <div className="self-end ld:text-right mb-8 max-w-3xl ml-auto pr-5">
           <h1 className="text-4xl mb-2 font-semibold tracking-tighter">
             Deadpool & Wolverine Cast
@@ -78,11 +79,12 @@ function Cast() {
             roles in the film.
           </p>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 overflow-hidden">
           {currentItems.map(({ img, castName, castRole }, idx) => (
             <Card
               key={idx}
-              className="bg-deadpool-neutral border-none flex flex-col items-center">
+              className="bg-deadpool-neutral border-none flex flex-col items-center"
+            >
               <CardHeader className="flex justify-center">
                 <div className="relative w-[200px] h-[300px]">
                   <Image
@@ -128,7 +130,7 @@ const Paginate: React.FC<PaginateProps> = ({
       <PaginationItem>
         <PaginationPrevious
           href="#"
-          onClick={e => {
+          onClick={(e) => {
             e.preventDefault();
             onPageChange(currentPage > 1 ? currentPage - 1 : 1);
           }}
@@ -138,11 +140,12 @@ const Paginate: React.FC<PaginateProps> = ({
         <PaginationItem key={idx + 1}>
           <PaginationLink
             href="#"
-            onClick={e => {
+            onClick={(e) => {
               e.preventDefault();
               onPageChange(idx + 1);
             }}
-            className={currentPage === idx + 1 ? "active" : ""}>
+            className={currentPage === idx + 1 ? "active" : ""}
+          >
             {idx + 1}
           </PaginationLink>
         </PaginationItem>
@@ -150,7 +153,7 @@ const Paginate: React.FC<PaginateProps> = ({
       <PaginationItem>
         <PaginationNext
           href="#"
-          onClick={e => {
+          onClick={(e) => {
             e.preventDefault();
             onPageChange(
               currentPage < totalPages ? currentPage + 1 : totalPages

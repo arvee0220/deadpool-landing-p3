@@ -32,28 +32,28 @@ const cinemaImages2: Images[] = [
 
 function HeroSection() {
   return (
-    <MaxWidthWrapper>
-      <section
-        className="w-full h-screen bg-deadpool-dark bg-cover bg-center flex flex-col justify-center items-center"
-        id="#home">
+    <section className="w-full  bg-deadpool-dark bg-cover bg-center" id="#home">
+      <MaxWidthWrapper className="h-screen flex flex-col justify-center items-center">
         <div className="w-11/12 h-1/6 flex justify-start items-center mt-8">
-          <p className="text-[16px] text-left px-3 md:px-1 leading-6 mt-10 ml-3">
+          <p className="text-[16px] text-left px-3 md:px-1 leading-6 mt-10 sm:ml-3">
             Premiered on July 22, 2024
           </p>
         </div>
         <div className="w-11/12 flex justify-start">
-          <div className="w-4/5 md:w-3/6 px-3 md:px-1 flex flex-col ml-3">
+          <div className="w-4/5 md:w-3/6 px-3 md:px-1 flex flex-col sm:ml-3">
             <Image
               src={marvelStudio}
               alt="Marvel logo"
               className="relative -left-1"
             />
-            <h1 className="text-5xl md:text-6xl font-bold">DEADPOOL</h1>
+            <h1 className="text-5xl md:text-6xl font-bold tracking-tighter">
+              DEADPOOL
+            </h1>
             <h1 className="py-2 md:py-0 text-5xl md:text-6xl font-bold flex">
               <span className=" text-4xl md:text-5xl text-transparent font-outline-secondary leading-8 md:leading-snug">
                 &
               </span>
-              <span className="text-transparent font-outline-primary">
+              <span className="text-transparent font-outline-primary tracking-tighter">
                 WOLVERINE
               </span>
             </h1>
@@ -66,28 +66,21 @@ function HeroSection() {
               <Button
                 variant={"secondary"}
                 className="rounded-full"
-                size={"lg"}>
+                size={"lg"}
+              >
                 Onsale Tickets
               </Button>
-              <Button
-                variant={"outline"}
-                className="rounded-full"
-                size={"lg"}>
+              <Button variant={"outline"} className="rounded-full" size={"lg"}>
                 Trailer
               </Button>
             </div>
           </div>
         </div>
         <div className="w-11/12 h-2/6 flex flex-col lg:flex-row lg:justify-between lg:items-center">
-          <div className="relative h-2/6 lg:w-2/6 flex justify-between items-center px-2 ml-3">
+          <div className="relative h-2/6 lg:w-2/6 flex justify-between items-center px-2 sm:ml-3">
             {cinemaImages.map(({ source, altText }, idx) => (
               <div key={idx}>
-                <Image
-                  src={source}
-                  alt={altText}
-                  width={125}
-                  height={100}
-                />
+                <Image src={source} alt={altText} width={125} height={100} />
               </div>
             ))}
           </div>
@@ -96,31 +89,24 @@ function HeroSection() {
             <Button
               size={"lg"}
               variant={"default"}
-              className="w-[64px] h-[64px] p-0 rounded-full flex items-center justify-center">
+              className="w-[64px] h-[64px] p-0 rounded-full flex items-center justify-center"
+            >
               <Link href="#sneakpeek">
-                <MoveDown
-                  className="text-deadpool-secondary"
-                  size={25}
-                />
+                <MoveDown className="text-deadpool-secondary" size={25} />
               </Link>
             </Button>
             <p className="text-center">Scroll Down</p>
           </div>
-          <div className="relative h-2/6 lg:w-2/6 flex justify-between items-center px-2 mr-3">
+          <div className="relative h-2/6 lg:w-2/6 flex justify-between items-center px-2 sm:mr-3">
             {cinemaImages2.map(({ source, altText }, idx) => (
               <div key={idx}>
-                <Image
-                  src={source}
-                  alt={altText}
-                  width={125}
-                  height={100}
-                />
+                <Image src={source} alt={altText} width={125} height={100} />
               </div>
             ))}
           </div>
         </div>
-      </section>
-    </MaxWidthWrapper>
+      </MaxWidthWrapper>
+    </section>
   );
 }
 

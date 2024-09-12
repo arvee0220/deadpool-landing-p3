@@ -17,7 +17,7 @@ function SneakPeek() {
   return (
     <MaxWidthWrapper>
       <div
-        className="flex flex-col lg:flex-row md:justify-between gap-10 p-[25px] lg:pl-[75px] mt-24 mb-32"
+        className="flex flex-col lg:flex-row md:justify-between gap-10 p-[25px] lg:pl-[75px] mt-24 mb-32 max-xs:overflow-hidden"
         id="sneakpeek"
       >
         <div className="flex flex-col space-y-6">
@@ -50,6 +50,10 @@ function SneakPeek() {
             }}
           />
           <Swiper
+            style={{
+              width: "100%",
+              maxWidth: "100%",
+            }}
             modules={[A11y]}
             breakpoints={{
               320: {

@@ -9,14 +9,14 @@ import SneakPeek from "@/components/section/SneakPeek";
 
 export default function Home() {
   return (
-    <main className="w-full h-full">
+    <main className="w-full h-full 2xl:flex flex-col items-center overflow-hidden">
       <NavBar />
       <HeroSection />
-      {/* <SneakPeek /> */}
-      {/* <FindTickets /> */}
+      <SneakPeek />
+      <FindTickets />
       <MarvelTalk />
       <ArticlesToRead />
-      {/* <Cast /> */}
+      <Cast />
       <Footer />
     </main>
   );

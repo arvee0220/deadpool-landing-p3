@@ -90,7 +90,8 @@ export default function ArticlesToRead() {
         renderBullet: function (_, className) {
           return '<div class="' + className + '">' + "</div>";
         },
-      }}>
+      }}
+    >
       {articles.map((item, index) => (
         <SwiperSlide key={index}>
           <div className="w-[350px] lg:w-[415px] flex flex-col gap-5 mb-9">
@@ -142,7 +143,8 @@ export default function ArticlesToRead() {
     <MaxWidthWrapper>
       <div
         className="w-full flex flex-col text-deadpool-primary px-[25px] lg:px-[75px] py-7 tracking-tighter gap-[22px] lg:gap-7"
-        id="article">
+        id="article"
+      >
         {articlesToReadWrapper}
         {articlesCarousel}
       </div>
