@@ -66,7 +66,7 @@ function Cast() {
   return (
     <MaxWidthWrapper>
       <section
-        className="w-11/12 flex flex-col items-center justify-center mx-auto"
+        className="w-11/12 flex flex-col items-center justify-center mx-auto scroll-mt-48"
         id="cast"
       >
         <div className="self-end ld:text-right mb-8 max-w-3xl ml-auto pr-5">

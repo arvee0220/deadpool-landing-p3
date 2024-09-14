@@ -1,10 +1,11 @@
 "use client";
 import { useState } from "react";
-import { Moon, Phone, X } from "lucide-react";
+import { Phone, X } from "lucide-react";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import Logo from "../elements/Logo";
-import MaxWidthWrapper from "./MaxWidthWrapper";
+import { useScroll, motion, useMotionValueEvent, animate } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 interface navText {
   href: string;
@@ -19,11 +20,38 @@ const navMenu: navText[] = [
 ];
 
 const NavBar: React.FC = () => {
+  const { scrollY } = useScroll();
   const [toggleMenu, setToggleMenu] = useState(false);
+  const [isTransparent, setIsTransparent] = useState(true);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    if (latest > 7) {
+      setIsTransparent(false);
+    } else {
+      setIsTransparent(true);
+    }
+  });
 
   return (
-    <section className="w-full max-w-screen-2xl mx-auto flex justify-center items-center fixed z-50">
-      <div className="w-11/12 h-[8rem] flex justify-between items-center">
+    <motion.section
+      initial={{
+        top: 0,
+      }}
+      animate={{
+        top: isTransparent ? 0 : "50px",
+      }}
+      className={cn(
+        "w-full max-w-screen-2xl rounded-full mx-auto flex justify-center items-center fixed z-50 transition-colors ",
+
+        !isTransparent && "bg-black/75 backdrop-blur-lg w-4/6 inset-x-0"
+      )}
+    >
+      <div
+        className={cn(
+          "w-11/12 h-[8rem] flex justify-between items-center",
+          !isTransparent && "h-[7rem]"
+        )}
+      >
         <Logo />
 
         {/* Mobile and tablet view */}
@@ -64,8 +92,8 @@ const NavBar: React.FC = () => {
         </div>
 
         {/* Mid to larger viewport */}
-        <div className="hidden w-6/12 mx-auto max-w-screen-2xl md:flex md:justify-evenly lg:justify-end items-center mr-3">
-          <ul className="xl:w-6/12 flex flex-row justify-between md:gap-4 xl:gap-3 p-3">
+        <div className="hidden w-full md:flex justify-end items-center mr-3">
+          <ul className="flex flex-row justify-between md:gap-4 p-3">
             {navMenu.map(({ href, text }, idx) => (
               <li
                 key={idx}
@@ -80,7 +108,7 @@ const NavBar: React.FC = () => {
           </Button>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
