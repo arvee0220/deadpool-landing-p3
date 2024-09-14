@@ -98,13 +98,16 @@ const NavBar: React.FC = () => {
             {navMenu.map(({ href, text }, idx) => (
               <li
                 key={idx}
-                className="relative w-full hover:border-b-2 hover:text-deadpool-secondary border-deadpool-secondary text-center pb-1"
+                className="md:text-sm lg:text-base relative w-full hover:border-b-2 hover:text-deadpool-secondary border-deadpool-secondary text-center pb-1"
               >
                 <Link href={href}>{text}</Link>
               </li>
             ))}
           </ul>
-          <Button variant="secondary" className="rounded-full">
+          <Button
+            variant="secondary"
+            className="rounded-full md:text-xs lg:text-sm"
+          >
             Contact
           </Button>
         </div>
