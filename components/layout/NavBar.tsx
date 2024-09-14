@@ -4,7 +4,8 @@ import { Phone, X } from "lucide-react";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import Logo from "../elements/Logo";
-import { useScroll, motion, useMotionValueEvent, animate } from "framer-motion";
+import { useScroll, motion, useMotionValueEvent } from "framer-motion";
+import { useMediaQuery } from "usehooks-ts";
 import { cn } from "@/lib/utils";
 
 interface navText {
@@ -20,6 +21,7 @@ const navMenu: navText[] = [
 ];
 
 const NavBar: React.FC = () => {
+  const matches = useMediaQuery("(min-width: 768px)");
   const { scrollY } = useScroll();
   const [toggleMenu, setToggleMenu] = useState(false);
   const [isTransparent, setIsTransparent] = useState(true);
@@ -38,12 +40,11 @@ const NavBar: React.FC = () => {
         top: 0,
       }}
       animate={{
-        top: isTransparent ? 0 : "50px",
+        top: isTransparent && matches ? 0 : !matches ? 0 : "50px",
       }}
       className={cn(
-        "w-full max-w-screen-2xl rounded-full mx-auto flex justify-center items-center fixed z-50 transition-colors ",
-
-        !isTransparent && "bg-black/75 backdrop-blur-lg w-4/6 inset-x-0"
+        "w-full max-w-screen-2xl md:rounded-full mx-auto flex justify-center items-center fixed z-50 transition-color",
+        !isTransparent && "bg-black/75 backdrop-blur-lg md:w-4/6 inset-x-0"
       )}
     >
       <div
