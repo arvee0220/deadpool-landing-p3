@@ -13,6 +13,8 @@ import {
   CardTitle,
 } from "../ui/card";
 import "swiper/css";
+import { useRef, useState } from "react";
+import { Swiper as SwiperType } from "swiper/types";
 
 type TMarvelTalk = {
   imgSrc: string;
@@ -121,59 +123,50 @@ function splitArray<T>(arr: T[], splitInto: number) {
 }
 
 function MarvelTalk() {
+  const [isEnd, setIsEnd] = useState<boolean>(false);
+  const swiperRef = useRef<SwiperType | null>();
   const columns = splitArray(MARVEL_TALK, 2);
 
   return (
-<<<<<<< HEAD
-    <MaxWidthWrapper className="max-w-screen-2xl">
-      <div
-        id="marveltalk"
-        className="w-full mt-24 mb-10 space-y-4 md:space-y-6 md:my-24 lg:mt-64 xl:mb-16 xl:mt-[32rem]"
-      >
-        <div className="space-y-1.5 md:space-y-2">
-          <h1 className="-tracking-tighter text-2xl md:text-4xl font-medium">
-            Marvel&apos;s Talk
-          </h1>
-          <p className="text-xs md:text-sm font-light -tracking-tighter">
-=======
     <MaxWidthWrapper>
       <div
         id="marveltalk"
-        className="w-full mt-24 mb-10 space-y-4 md:space-y-6 md:my-24 xl:mb-16 xl:mt-44 px-[25px] lg:px-[75px]">
+        className="w-full mt-24 mb-10 space-y-3 md:space-y-2 md:my-24 xl:mb-16 xl:mt-44 px-[25px] lg:px-[75px]"
+      >
         <div className="space-y-1.5 md:space-y-2">
           <h1 className="tracking-tighter text-4xl font-semibold">
             Marvel&apos;s Talk
           </h1>
           <p className="tracking-tighter">
->>>>>>> d80d59a2e56d0c63435f731e41c54da4519db827
             Your source for the latest in Marvel Cinematics.
           </p>
         </div>
         <div className="md:hidden flex items-center justify-center gap-4 w-max ml-auto mt-8">
           <span className="text-sm">SWIPE RIGHT</span>
-          <Button className="size-12 rounded-full border-none bg-[#141311] hover:!bg-stone-700 focus:!bg-stone-700">
+          <Button
+            disabled={isEnd}
+            className="size-12 rounded-full border-none bg-[#141311] hover:!bg-stone-700 focus:!bg-stone-700"
+            onClick={() => swiperRef.current?.slideNext()}
+          >
             <ArrowRight className="size-5 md:size-6 text-deadpool-secondary" />
           </Button>
         </div>
-        <div className="relative max-w-sm md:max-w-3xl xl:max-w-screen-xl">
+        <div className="relative w-full xl:max-w-screen-xl">
           <div
-            className="hidden md:block absolute left-0 w-1/6 inset-y-0 z-10 pointer-events-none"
+            className="block absolute left-0 w-1/6 inset-y-0 z-10 pointer-events-none"
             style={{
               background:
                 "linear-gradient(to right, #080808, rgba(8, 8, 8, 0))",
             }}
           />
           <div
-            className="hidden md:block absolute right-0 w-1/6 inset-y-0 z-10 pointer-events-none"
+            className="block absolute right-0 w-1/6 inset-y-0 z-10 pointer-events-none"
             style={{
               background: "linear-gradient(to left, #080808, rgba(8, 8, 8, 0))",
             }}
           />
           <Swiper
-<<<<<<< HEAD
-=======
-            className=""
->>>>>>> d80d59a2e56d0c63435f731e41c54da4519db827
+            grabCursor
             modules={[A11y]}
             breakpoints={{
               320: {
@@ -181,7 +174,7 @@ function MarvelTalk() {
                 spaceBetween: 15,
               },
               640: {
-                slidesPerView: 1.4,
+                slidesPerView: 1.8,
                 spaceBetween: 15,
               },
               768: {
@@ -192,52 +185,35 @@ function MarvelTalk() {
                 slidesPerView: 3,
                 spaceBetween: 20,
               },
-<<<<<<< HEAD
             }}
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
+            onSliderMove={(swiper) => {
+              if (isEnd) {
+                setIsEnd(false);
+              }
+              swiperRef.current = swiper;
+            }}
+            onReachEnd={() => setIsEnd(true)}
           >
             {columns[0].map((v, index) => (
               <SwiperSlide key={index}>
-                <Card className="bg-[#141311] h-52 flex items-center justify-center space-x-4 m-2 w-full rounded-lg overflow-hidden shadow-none border-none px-4 py-2 ">
-                  <Avatar className="size-14">
+                <Card className="bg-[#141311] h-48 flex items-center justify-center space-x-4 m-2 w-full rounded-lg shadow-none border-none px-4 py-5">
+                  <Avatar className="size-12 md:size-14 xl:size-[60px]">
                     <AvatarImage className="object-cover" src={v.imgSrc} />
-                    <AvatarFallback>CN</AvatarFallback>
-                  </Avatar>
-                  <div className="flex flex-col justify-center w-full">
-                    <CardHeader className="flex-row items-center gap-1.5 md:gap-2 px-0 py-2">
-                      <CardTitle className="text-xl md:text-2xl text-deadpool-secondary">
-=======
-            }}>
-            {columns[0].map((v, index) => (
-              <SwiperSlide key={index}>
-                <Card className="bg-[#141311] h-48 flex items-center justify-center space-x-4 m-2 w-auto max-w-[450px] rounded-lg shadow-none border-none px-4 py-5">
-                  <Avatar className="size-[60px]">
-                    <AvatarImage
-                      className="object-cover"
-                      src={v.imgSrc}
-                    />
                     <AvatarFallback>CN</AvatarFallback>
                   </Avatar>
                   <div className="flex flex-col justify-center flex-1">
                     <CardHeader className="flex-row items-center gap-1.5 md:gap-2 px-0 py-2">
-                      <CardTitle className="text-2xl text-deadpool-secondary tracking-tighter font-semibold">
->>>>>>> d80d59a2e56d0c63435f731e41c54da4519db827
+                      <CardTitle className="text-lg md:text-xl text-deadpool-secondary tracking-tighter font-semibold">
                         {v.author}
                       </CardTitle>
-
                       <Circle className="size-1.5 text-[#3e3b36] !fill-[#3e3b36]" />
-<<<<<<< HEAD
-                      <CardDescription>{v.timeStamp}</CardDescription>
-                    </CardHeader>
-                    <CardContent className="p-0 w-full">
-                      <p className="text-white text-pretty text-xs md:text-sm -tracking-tighter">
-=======
                       <CardDescription className="font-semibold tracking-tighter">
                         {v.timeStamp}
                       </CardDescription>
                     </CardHeader>
-                    <CardContent className="p-0 w-auto">
-                      <p className="text-[#F3F3F3] text-pretty w-auto tracking-tighter line-clamp-5">
->>>>>>> d80d59a2e56d0c63435f731e41c54da4519db827
+                    <CardContent className="p-0">
+                      <p className="text-[#F3F3F3] text-sm xs:text-base text-pretty tracking-tighter line-clamp-3 md:line-clamp-4">
                         {v.content}
                       </p>
                     </CardContent>
@@ -247,25 +223,26 @@ function MarvelTalk() {
             ))}
           </Swiper>
         </div>
-        <div className="relative max-w-sm md:max-w-3xl xl:max-w-screen-xl">
+        <div className="relative w-full xl:max-w-screen-xl">
           <div
-            className="hidden md:block absolute left-0 w-1/6 inset-y-0 z-10 pointer-events-none"
+            className="block absolute left-0 w-1/6 inset-y-0 z-10 pointer-events-none"
             style={{
               background:
                 "linear-gradient(to right, #080808, rgba(8, 8, 8, 0))",
             }}
           />
           <div
-            className="hidden md:block absolute right-0 w-1/6 inset-y-0 z-10 pointer-events-none"
+            className="block absolute right-0 w-1/6 inset-y-0 z-10 pointer-events-none"
             style={{
               background: "linear-gradient(to left, #080808, rgba(8, 8, 8, 0))",
             }}
           />
           <Swiper
+            grabCursor
             modules={[A11y]}
             breakpoints={{
               320: {
-                slidesPerView: 1.2,
+                slidesPerView: 1.15,
                 spaceBetween: 15,
               },
               640: {
@@ -277,44 +254,28 @@ function MarvelTalk() {
                 spaceBetween: 15,
               },
               1024: {
-                slidesPerView: 3.4,
+                slidesPerView: 3.2,
                 spaceBetween: 20,
               },
-<<<<<<< HEAD
             }}
+            onSliderMove={(swiper) => {
+              if (isEnd) {
+                setIsEnd(false);
+              }
+              swiperRef.current = swiper;
+            }}
+            onReachEnd={() => setIsEnd(true)}
           >
             {columns[1].map((v, index) => (
               <SwiperSlide key={index}>
-                <Card className="bg-[#141311] h-56 flex items-center justify-center space-x-4 m-2 w-full rounded-lg overflow-hidden shadow-none border-none px-4 py-2 ">
-                  <Avatar className="size-14">
+                <Card className="bg-[#141311] h-48 flex items-center justify-center space-x-4 m-2 w-full rounded-lg shadow-none border-none px-4 py-5">
+                  <Avatar className="size-12 md:size-14 xl:size-[60px]">
                     <AvatarImage className="object-cover" src={v.imgSrc} />
-                    <AvatarFallback>CN</AvatarFallback>
-                  </Avatar>
-                  <div className="flex flex-col justify-center w-full">
-                    <CardHeader className="flex-row items-center gap-1.5 md:gap-2 px-0 py-2">
-                      <CardTitle className="text-xl md:text-2xl text-deadpool-secondary">
-                        {v.author}
-                      </CardTitle>
-                      <Circle className="size-1.5 text-[#3e3b36] !fill-[#3e3b36]" />
-                      <CardDescription>{v.timeStamp}</CardDescription>
-                    </CardHeader>
-                    <CardContent className="p-0 w-full">
-                      <p className="text-white text-pretty text-xs md:text-sm -tracking-tighter">
-=======
-            }}>
-            {columns[1].map((v, index) => (
-              <SwiperSlide key={index}>
-                <Card className="bg-[#141311] h-48 flex items-center justify-center space-x-4 m-2 w-auto rounded-lg shadow-none border-none px-4 py-5">
-                  <Avatar className="size-[60px]">
-                    <AvatarImage
-                      className="object-cover"
-                      src={v.imgSrc}
-                    />
                     <AvatarFallback>CN</AvatarFallback>
                   </Avatar>
                   <div className="flex flex-col justify-center w-auto flex-1">
                     <CardHeader className="flex-row items-center gap-1.5 md:gap-2 px-0 py-2">
-                      <CardTitle className="text-2xl text-deadpool-secondary tracking-tighter font-semibold">
+                      <CardTitle className="text-lg md:text-xl text-deadpool-secondary tracking-tighter font-semibold">
                         {v.author}
                       </CardTitle>
                       <Circle className="size-1.5 text-[#3e3b36] !fill-[#3e3b36]" />
@@ -322,9 +283,8 @@ function MarvelTalk() {
                         {v.timeStamp}
                       </CardDescription>
                     </CardHeader>
-                    <CardContent className="p-0 w-auto">
-                      <p className="text-[#F3F3F3] line-clamp-5 text-pretty tracking-tighter">
->>>>>>> d80d59a2e56d0c63435f731e41c54da4519db827
+                    <CardContent className="p-0">
+                      <p className="text-[#F3F3F3] line-clamp-3 md:line-clamp-4 text-pretty tracking-tighter text-sm xs:text-base">
                         {v.content}
                       </p>
                     </CardContent>
