@@ -66,14 +66,14 @@ function Cast() {
   return (
     <MaxWidthWrapper>
       <section
-        className="w-11/12 flex flex-col items-center justify-center mx-auto"
+        className="w-11/12 flex flex-col items-center justify-center mx-auto scroll-mt-40"
         id="cast"
       >
         <div className="self-end ld:text-right mb-8 max-w-3xl ml-auto pr-5">
-          <h1 className="text-4xl mb-2 font-semibold tracking-tighter">
+          <h1 className="md:text-end text-4xl mb-2 font-semibold tracking-tighter">
             Deadpool & Wolverine Cast
           </h1>
-          <p className="tracking-tighter">
+          <p className="md:text-end tracking-tighter">
             Meet the Star-Studded Lineup Bringing Your Favorite Characters to
             Life. Explore the actors behind this iconic Marvel duo and their
             roles in the film.

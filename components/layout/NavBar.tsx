@@ -1,10 +1,12 @@
 "use client";
 import { useState } from "react";
-import { Moon, Phone, X } from "lucide-react";
+import { Phone, X } from "lucide-react";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import Logo from "../elements/Logo";
-import MaxWidthWrapper from "./MaxWidthWrapper";
+import { useScroll, motion, useMotionValueEvent } from "framer-motion";
+import { useMediaQuery } from "usehooks-ts";
+import { cn } from "@/lib/utils";
 
 interface navText {
   href: string;
@@ -19,15 +21,50 @@ const navMenu: navText[] = [
 ];
 
 const NavBar: React.FC = () => {
+  const matches = useMediaQuery("(min-width: 768px)");
+  const { scrollY } = useScroll();
   const [toggleMenu, setToggleMenu] = useState(false);
+  const [isTransparent, setIsTransparent] = useState(true);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    if (latest > 10) {
+      setIsTransparent(false);
+    } else {
+      setIsTransparent(true);
+    }
+  });
 
   return (
-    <section className="w-full max-w-screen-2xl mx-auto flex justify-center items-center fixed z-50">
-      <div className="w-11/12 h-[8rem] flex justify-between items-center">
-        <Logo />
-
+    <motion.section
+      initial={{
+        top: 0,
+      }}
+      animate={{
+        top: isTransparent && matches ? 0 : !matches ? 0 : "35px",
+      }}
+      className={cn(
+        "w-full max-w-screen-2xl md:rounded-full mx-auto flex justify-center items-center fixed z-50 transition-color",
+        !isTransparent &&
+          "bg-black/75 backdrop-blur-lg md:w-max inset-x-0 pl-6 border border-stone-700",
+        !matches && "pl-0"
+      )}
+    >
+      <div
+        className={cn(
+          "w-11/12 h-32 flex justify-between items-center",
+          !isTransparent && "h-16 w-full",
+          !matches && isTransparent && "h-28",
+          !matches && !isTransparent && "h-20"
+        )}
+      >
+        {isTransparent ? <Logo /> : null}
         {/* Mobile and tablet view */}
-        <div className="md:w-6/12 md:hidden flex items-center px-3 gap-5 md:px-1">
+        <div
+          className={cn(
+            "w-max md:w-6/12 md:hidden flex items-center px-6 gap-6 md:px-1",
+            !isTransparent && !matches && "w-full justify-between"
+          )}
+        >
           <div>
             <Phone />
           </div>
@@ -64,23 +101,33 @@ const NavBar: React.FC = () => {
         </div>
 
         {/* Mid to larger viewport */}
-        <div className="hidden w-6/12 mx-auto max-w-screen-2xl md:flex md:justify-evenly lg:justify-end items-center mr-3">
-          <ul className="xl:w-6/12 flex flex-row justify-between md:gap-4 xl:gap-3 p-3">
+        <div className="hidden w-full md:flex justify-end items-center mr-3">
+          <ul className="flex flex-row justify-between md:gap-4 p-3">
             {navMenu.map(({ href, text }, idx) => (
               <li
                 key={idx}
-                className="relative w-full hover:border-b-2 hover:text-deadpool-secondary border-deadpool-secondary text-center pb-1"
+                className={cn(
+                  "md:text-sm lg:text-base relative w-full hover:border-b-2 hover:text-deadpool-secondary border-deadpool-secondary text-center pb-1",
+                  !isTransparent && "!text-sm"
+                )}
               >
                 <Link href={href}>{text}</Link>
               </li>
             ))}
           </ul>
-          <Button variant="secondary" className="rounded-full">
+          <Button
+            variant="secondary"
+            size={!isTransparent ? "sm" : "default"}
+            className={cn(
+              "rounded-full md:text-xs lg:text-sm",
+              !isTransparent && "p-3 ml-2"
+            )}
+          >
             Contact
           </Button>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
