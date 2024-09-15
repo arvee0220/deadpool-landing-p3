@@ -120,7 +120,7 @@ const NavBar: React.FC = () => {
             size={!isTransparent ? "sm" : "default"}
             className={cn(
               "rounded-full md:text-xs lg:text-sm",
-              !isTransparent && "p-2 ml-2"
+              !isTransparent && "p-3 ml-2"
             )}
           >
             Contact
