@@ -27,7 +27,7 @@ const NavBar: React.FC = () => {
   const [isTransparent, setIsTransparent] = useState(true);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    if (latest > 7) {
+    if (latest > 10) {
       setIsTransparent(false);
     } else {
       setIsTransparent(true);
@@ -40,23 +40,31 @@ const NavBar: React.FC = () => {
         top: 0,
       }}
       animate={{
-        top: isTransparent && matches ? 0 : !matches ? 0 : "50px",
+        top: isTransparent && matches ? 0 : !matches ? 0 : "35px",
       }}
       className={cn(
         "w-full max-w-screen-2xl md:rounded-full mx-auto flex justify-center items-center fixed z-50 transition-color",
-        !isTransparent && "bg-black/75 backdrop-blur-lg md:w-4/6 inset-x-0"
+        !isTransparent &&
+          "bg-black/75 backdrop-blur-lg md:w-max inset-x-0 pl-6 border border-stone-700",
+        !matches && "pl-0"
       )}
     >
       <div
         className={cn(
-          "w-11/12 h-[8rem] flex justify-between items-center",
-          !isTransparent && "h-[7rem]"
+          "w-11/12 h-32 flex justify-between items-center",
+          !isTransparent && "h-16 w-full",
+          !matches && isTransparent && "h-28",
+          !matches && !isTransparent && "h-20"
         )}
       >
-        <Logo />
-
+        {isTransparent ? <Logo /> : null}
         {/* Mobile and tablet view */}
-        <div className="md:w-6/12 md:hidden flex items-center px-3 gap-5 md:px-1">
+        <div
+          className={cn(
+            "w-max md:w-6/12 md:hidden flex items-center px-6 gap-6 md:px-1",
+            !isTransparent && !matches && "w-full justify-between"
+          )}
+        >
           <div>
             <Phone />
           </div>
@@ -98,7 +106,10 @@ const NavBar: React.FC = () => {
             {navMenu.map(({ href, text }, idx) => (
               <li
                 key={idx}
-                className="md:text-sm lg:text-base relative w-full hover:border-b-2 hover:text-deadpool-secondary border-deadpool-secondary text-center pb-1"
+                className={cn(
+                  "md:text-sm lg:text-base relative w-full hover:border-b-2 hover:text-deadpool-secondary border-deadpool-secondary text-center pb-1",
+                  !isTransparent && "!text-sm"
+                )}
               >
                 <Link href={href}>{text}</Link>
               </li>
@@ -106,7 +117,11 @@ const NavBar: React.FC = () => {
           </ul>
           <Button
             variant="secondary"
-            className="rounded-full md:text-xs lg:text-sm"
+            size={!isTransparent ? "sm" : "default"}
+            className={cn(
+              "rounded-full md:text-xs lg:text-sm",
+              !isTransparent && "p-2 ml-2"
+            )}
           >
             Contact
           </Button>
