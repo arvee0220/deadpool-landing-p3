@@ -48,26 +48,6 @@ const itemsPerPage = 4;
 
 function Cast() {
 	const [currentPage, setCurrentPage] = useState(1);
-	const [loading, setLoading] = useState(true);
-	const [progress, setProgress] = useState(0);
-
-	useEffect(() => {
-		const timer = setInterval(() => {
-			setProgress((prevProgress) => (prevProgress >= 100 ? 0 : prevProgress + 10));
-		}, 800);
-		return () => {
-			clearInterval(timer);
-		};
-	}, []);
-
-	useEffect(() => {
-		setLoading(true);
-	}, []);
-
-	const handleImageLoad = () => {
-		setLoading(false);
-	};
-
 	const lastItemIdx = currentPage * itemsPerPage;
 	const firstItemIdx = lastItemIdx - itemsPerPage;
 	const currentItems = castMembers.slice(firstItemIdx, lastItemIdx);
