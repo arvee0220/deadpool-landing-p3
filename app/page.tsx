@@ -1,4 +1,4 @@
-import NavBar from "@/components/layout/NavBar";
+import NavBar from "@/components/sub-components/NavBar";
 import ArticlesToRead from "@/components/section/ArticlesToRead";
 import Cast from "@/components/section/Cast";
 import FindTickets from "@/components/section/FindTickets";
