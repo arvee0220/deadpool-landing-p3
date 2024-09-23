@@ -50,6 +50,7 @@ function SneakPeek() {
             }}
           />
           <Swiper
+            grabCursor
             style={{
               width: "100%",
               maxWidth: "100%",
