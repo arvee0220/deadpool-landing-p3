@@ -21,11 +21,11 @@ function SneakPeek() {
         id="sneakpeek"
       >
         <div className="flex flex-col space-y-6">
-          <h2 className="text-4xl font-semibold max-w-prose text-pretty leading-[54px] tracking-tighter">
+          <h2 className="text-3xl md:text-4xl font-semibold max-w-prose text-pretty leading-[46px] md:leading-[54px] tracking-tighter">
             Deadpool & Wolverine is a 2024 American superhero film based on
             Marvel Comics 
           </h2>
-          <p className="text-xl text-stone-300 text-pretty max-w-prose leading-[30px] tracking-tighter">
+          <p className="text-base sm:text-lg md:text-xl text-stone-300 text-pretty max-w-prose leading-[30px] tracking-tighter">
             Featuring the characters Deadpool and Wolverine, produced by Marvel
             Studios. The film received generally positive reviews from critics
             and has grossed over $211 million worldwide.
@@ -50,6 +50,7 @@ function SneakPeek() {
             }}
           />
           <Swiper
+            grabCursor
             style={{
               width: "100%",
               maxWidth: "100%",

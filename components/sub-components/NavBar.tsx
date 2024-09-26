@@ -7,6 +7,7 @@ import Logo from "../elements/Logo";
 import { useScroll, motion, useMotionValueEvent } from "framer-motion";
 import { useMediaQuery } from "usehooks-ts";
 import { cn } from "@/lib/utils";
+import MaxWidthWrapper from "../layout/MaxWidthWrapper";
 
 interface navText {
   href: string;
@@ -35,99 +36,96 @@ const NavBar: React.FC = () => {
   });
 
   return (
-    <motion.section
-      initial={{
-        top: 0,
-      }}
-      animate={{
-        top: isTransparent && matches ? 0 : !matches ? 0 : "35px",
-      }}
+    <section
       className={cn(
-        "w-full max-w-screen-2xl md:rounded-full mx-auto flex justify-center items-center fixed z-50 transition-color",
+        "pl-0 w-full fixed z-50",
         !isTransparent &&
-          "bg-black/75 backdrop-blur-lg md:w-max inset-x-0 pl-6 border border-stone-700",
-        !matches && "pl-0"
+          "bg-black/75 backdrop-blur-lg inset-x-0 md:pl-6 border-b border-stone-700",
+        !matches && !isTransparent && "pl-4"
       )}
     >
-      <div
-        className={cn(
-          "w-11/12 h-32 flex justify-between items-center",
-          !isTransparent && "h-16 w-full",
-          !matches && isTransparent && "h-28",
-          !matches && !isTransparent && "h-20"
-        )}
-      >
-        {isTransparent ? <Logo /> : null}
-        {/* Mobile and tablet view */}
+      <MaxWidthWrapper className="flex justify-center items-center">
         <div
           className={cn(
-            "w-max md:w-6/12 md:hidden flex items-center px-6 gap-6 md:px-1",
-            !isTransparent && !matches && "w-full justify-between"
+            "w-11/12 h-32 flex justify-between items-center",
+            !isTransparent && "h-24",
+            !matches && isTransparent && "h-28",
+            !matches && !isTransparent && "h-20"
           )}
         >
-          <div>
-            <Phone />
-          </div>
-          <div className="flex flex-col">
-            <div
-              className="flex flex-col justify-between w-6 h-5 cursor-pointer"
-              onClick={() => setToggleMenu(!toggleMenu)}
-            >
-              {toggleMenu ? (
-                <X size={20} className="text-deadpool-primary" />
-              ) : (
-                <>
-                  <span className="block w-full h-[2px] bg-deadpool-primary rounded" />
-                  <span className="block w-4/6 h-[2px] bg-deadpool-primary rounded ml-auto" />
-                  <span className="block w-full h-[2px] bg-deadpool-primary rounded" />
-                </>
-              )}
-            </div>
-            {toggleMenu && (
-              <div className="flex flex-col mt-2 bg-deadpool-neutral rounded-md shadow-lg absolute top-20 right-8 w-15">
-                <ul className="flex flex-col gap-2 p-3">
-                  {navMenu.map(({ href, text }, idx) => (
-                    <li
-                      key={idx}
-                      className="hover:border-b-2 hover:text-deadpool-secondary border-deadpool-secondary"
-                    >
-                      <Link href={href}>{text}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
-        </div>
-
-        {/* Mid to larger viewport */}
-        <div className="hidden w-full md:flex justify-end items-center mr-3">
-          <ul className="flex flex-row justify-between md:gap-4 p-3">
-            {navMenu.map(({ href, text }, idx) => (
-              <li
-                key={idx}
-                className={cn(
-                  "md:text-sm lg:text-base relative w-full hover:border-b-2 hover:text-deadpool-secondary border-deadpool-secondary text-center pb-1",
-                  !isTransparent && "!text-sm"
-                )}
-              >
-                <Link href={href}>{text}</Link>
-              </li>
-            ))}
-          </ul>
-          <Button
-            variant="secondary"
-            size={!isTransparent ? "sm" : "default"}
+          <Logo />
+          {/* Mobile and tablet view */}
+          <div
             className={cn(
-              "rounded-full md:text-xs lg:text-sm",
-              !isTransparent && "p-3 ml-2"
+              "w-full md:w-6/12 md:hidden flex items-center gap-6 pr-6 justify-end",
+              !isTransparent && !matches && "w-full "
             )}
           >
-            Contact
-          </Button>
+            <div>
+              <Phone className="size-5 sm:size-6" />
+            </div>
+            <div className="flex flex-col">
+              <div
+                className="flex flex-col justify-between w-6 h-5 cursor-pointer"
+                onClick={() => setToggleMenu(!toggleMenu)}
+              >
+                {toggleMenu ? (
+                  <X className="size-6 sm:size-8 text-deadpool-primary" />
+                ) : (
+                  <>
+                    <span className="block w-full h-[2px] bg-deadpool-primary rounded" />
+                    <span className="block w-4/6 h-[2px] bg-deadpool-primary rounded ml-auto" />
+                    <span className="block w-full h-[2px] bg-deadpool-primary rounded" />
+                  </>
+                )}
+              </div>
+              {toggleMenu && (
+                <div className="flex flex-col mt-2 bg-deadpool-neutral rounded-md shadow-lg absolute top-20 right-8 w-15">
+                  <ul className="flex flex-col gap-2 p-3">
+                    {navMenu.map(({ href, text }, idx) => (
+                      <li
+                        key={idx}
+                        className="hover:border-b-2 hover:text-deadpool-secondary border-deadpool-secondary"
+                      >
+                        <Link href={href}>{text}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Mid to larger viewport */}
+          <div
+            className={cn(
+              "hidden w-full md:flex justify-end items-center mr-0",
+              !isTransparent && "mr-6"
+            )}
+          >
+            <ul className="flex flex-row justify-between md:gap-4 p-3">
+              {navMenu.map(({ href, text }, idx) => (
+                <li
+                  key={idx}
+                  className="md:text-sm lg:text-base relative w-full hover:border-b-2 hover:text-deadpool-secondary border-deadpool-secondary text-center pb-1"
+                >
+                  <Link href={href}>{text}</Link>
+                </li>
+              ))}
+            </ul>
+            <Button
+              variant="secondary"
+              className={cn(
+                "rounded-full md:text-xs lg:text-sm",
+                !isTransparent && "ml-2"
+              )}
+            >
+              Contact
+            </Button>
+          </div>
         </div>
-      </div>
-    </motion.section>
+      </MaxWidthWrapper>
+    </section>
   );
 };
 
