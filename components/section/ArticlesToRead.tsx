@@ -142,7 +142,7 @@ export default function ArticlesToRead() {
   return (
     <MaxWidthWrapper>
       <div
-        className="w-full flex flex-col text-deadpool-primary px-[25px] lg:px-[75px] py-7 tracking-tighter gap-[22px] lg:gap-7 scroll-mt-40"
+        className="w-full flex flex-col text-deadpool-primary px-[25px] lg:px-[75px] py-7 tracking-tighter gap-[22px] lg:gap-7 scroll-mt-14"
         id="article"
       >
         {articlesToReadWrapper}

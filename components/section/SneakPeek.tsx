@@ -17,10 +17,10 @@ function SneakPeek() {
   return (
     <MaxWidthWrapper>
       <div
-        className="flex flex-col lg:flex-row md:justify-between gap-10 p-[25px] lg:pl-[75px] mt-24 mb-32 max-xs:overflow-hidden"
+        className="h-full flex flex-col lg:flex-row md:justify-between gap-10 p-[25px] lg:pl-[75px]"
         id="sneakpeek"
       >
-        <div className="flex flex-col space-y-6">
+        <div className="flex flex-col space-y-6 mt-20 md:mt-28">
           <h2 className="text-3xl md:text-4xl font-semibold max-w-prose text-pretty leading-[46px] md:leading-[54px] tracking-tighter">
             Deadpool & Wolverine is a 2024 American superhero film based on
             Marvel Comics 
@@ -41,7 +41,7 @@ function SneakPeek() {
             <span className="ml-8">Watch Stream & Trailer</span>
           </Button>
         </div>
-        <div className="relative mx-auto max-w-xs sm:max-w-lg md:max-w-xl">
+        <div className="relative mx-auto max-w-xs sm:max-w-lg md:max-w-xl mt-20 lg:mt-28">
           <div
             className="absolute left-0 w-full inset-y-0 z-10 pointer-events-none"
             style={{
