@@ -96,7 +96,6 @@ export default function ArticlesToRead() {
             <Image
               src={item.thumbnail}
               alt={item.alt}
-              loading="lazy"
               className="aspect-[4/3] object-cover bg-center rounded-2xl"
             />
             <div className="flex flex-col gap-[15px]">
