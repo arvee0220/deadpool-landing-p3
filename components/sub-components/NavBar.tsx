@@ -30,7 +30,7 @@ export default function NavBar() {
 
   useEffect(() => {
     function handleScrollNavbar() {
-      if (window.scrollY > 100) {
+      if (window.scrollY > 250) {
         setIsTransparent(true);
       } else {
         setIsTransparent(false);
@@ -76,17 +76,19 @@ export default function NavBar() {
   );
 
   return (
-    <MaxWidthWrapper>
-      <nav
-        className={cn(
-          "w-full px-[25px] py-5 fixed lg:px-[75px] flex items-center justify-between z-50",
-          isTransparent && "bg-deadpool-neutral pb-3"
-        )}
-      >
-        <Logo />
-        {NavbarLinksSm}
-        {NavLinksLg}
-      </nav>
-    </MaxWidthWrapper>
+    <section className="w-full">
+      <MaxWidthWrapper>
+        <nav
+          className={cn(
+            "w-full max-w-screen-2xl px-[25px] py-5 fixed lg:px-[75px] flex items-center justify-between z-50",
+            isTransparent && "bg-deadpool-neutral pb-3"
+          )}
+        >
+          <Logo />
+          {NavbarLinksSm}
+          {NavLinksLg}
+        </nav>
+      </MaxWidthWrapper>
+    </section>
   );
 }
