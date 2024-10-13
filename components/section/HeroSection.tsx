@@ -12,98 +12,94 @@ import {
 import { Button } from "../ui/button";
 import Link from "next/link";
 import MaxWidthWrapper from "../layout/MaxWidthWrapper";
+import SponsorLogos from "../sub-components/SponsorLogos";
 
-type Images = {
+export type LogoImageType = {
   source: StaticImageData;
   altText: string;
 };
 
-const cinemaImages: Images[] = [
+const cinemaImages: LogoImageType[] = [
   { source: disney, altText: "Disney Plus" },
   { source: primeVid, altText: "Prime Video" },
   { source: netflix, altText: "Netflix" },
 ];
 
-const cinemaImages2: Images[] = [
+const cinemaImages2: LogoImageType[] = [
   { source: smCinema, altText: "SM Cinema" },
   { source: imax, altText: "IMAX" },
   { source: vista, altText: "Vista" },
 ];
 
 function HeroSection() {
+  const MarvelHeroTextBlock = (
+    <div className="w-4/5 md:w-1/2 flex flex-col">
+      <Image
+        src={marvelStudio}
+        alt="Marvel logo"
+        className="relative -left-2"
+      />
+      <h1 className="text-4xl xs:text-5xl md:text-6xl font-bold tracking-tighter">
+        DEADPOOL
+      </h1>
+      <h1 className="py-2 md:py-0 text-4xl xs:text-5xl md:text-6xl font-bold flex">
+        <span className="text-4xl md:text-5xl text-transparent font-outline-secondary leading-8 md:leading-snug">
+          &
+        </span>
+        <span className="text-transparent font-outline-primary tracking-tighter">
+          WOLVERINE
+        </span>
+      </h1>
+      <p className="text-wrap">
+        &quot;Deadpool & Wolverine&quot; is a 2024 superhero film featuring the
+        Marvel characters, produced by Marvel Studios and distributed by Disney.
+      </p>
+    </div>
+  );
+
+  const ButtonsWrapper = (
+    <div className="flex flex-col xs:flex-row gap-5 pt-8 xs:py-8">
+      <Button variant="secondary" className="rounded-full" size="lg">
+        Onsale Tickets
+      </Button>
+      <Button variant="outline" className="rounded-full" size="lg">
+        Trailer
+      </Button>
+    </div>
+  );
+
+  const MoveDownButton = (
+    <Button
+      size="lg"
+      variant="default"
+      className="w-[64px] h-[64px] p-0 rounded-full flex items-center justify-center max-md:order-last"
+    >
+      <Link href="#sneakpeek">
+        <MoveDown className="text-deadpool-secondary" size={25} />
+      </Link>
+    </Button>
+  );
+
+  const LogosWrapper = (
+    <div className="w-full flex flex-col md:flex-row justify-between items-center gap-8 md:py-10">
+      <SponsorLogos imagesArr={cinemaImages} />
+      {MoveDownButton}
+      <SponsorLogos imagesArr={cinemaImages2} />
+    </div>
+  );
+
   return (
-    <section className="w-full  bg-deadpool-dark bg-cover bg-center" id="#home">
-      <MaxWidthWrapper className="h-screen flex flex-col justify-center items-center">
-        <div className="w-11/12 h-1/6 flex justify-start items-center mt-8">
-          <p className="text-[16px] text-left px-3 md:px-1 leading-6 mt-10 sm:ml-3">
+    <section className="w-full bg-deadpool-dark bg-cover bg-center h-screen">
+      <MaxWidthWrapper>
+        <div className="w-full h-screen px-[25px] lg:px-[75px] pb-8 flex flex-col justify-between">
+          <p className="text-[16px] text-left leading-6 mt-28">
             Premiered on July 22, 2024
           </p>
-        </div>
-        <div className="w-11/12 flex justify-start">
-          <div className="w-4/5 md:w-3/6 px-3 md:px-1 flex flex-col sm:ml-3">
-            <Image
-              src={marvelStudio}
-              alt="Marvel logo"
-              className="relative -left-1"
-            />
-            <h1 className="text-5xl md:text-6xl font-bold tracking-tighter">
-              DEADPOOL
-            </h1>
-            <h1 className="py-2 md:py-0 text-5xl md:text-6xl font-bold flex">
-              <span className=" text-4xl md:text-5xl text-transparent font-outline-secondary leading-8 md:leading-snug">
-                &
-              </span>
-              <span className="text-transparent font-outline-primary tracking-tighter">
-                WOLVERINE
-              </span>
-            </h1>
-            <p className="text-wrap">
-              &quot;Deadpool & Wolverine&quot; is a 2024 superhero film
-              featuring the Marvel characters, produced by Marvel Studios and
-              distributed by Disney.
-            </p>
-            <div className="flex gap-5 py-8">
-              <Button
-                variant={"secondary"}
-                className="rounded-full"
-                size={"lg"}
-              >
-                Onsale Tickets
-              </Button>
-              <Button variant={"outline"} className="rounded-full" size={"lg"}>
-                Trailer
-              </Button>
-            </div>
+          <div className="flex flex-col py-8">
+            {MarvelHeroTextBlock}
+            {ButtonsWrapper}
           </div>
-        </div>
-        <div className="w-11/12 h-2/6 flex flex-col lg:flex-row lg:justify-between lg:items-center">
-          <div className="relative h-2/6 lg:w-2/6 flex justify-between items-center px-2 sm:ml-3">
-            {cinemaImages.map(({ source, altText }, idx) => (
-              <div key={idx}>
-                <Image src={source} alt={altText} width={125} height={100} />
-              </div>
-            ))}
-          </div>
-
-          <div className="h-2/6 flex flex-col justify-evenly items-center p-1 order-3 lg:order-none">
-            <Button
-              size={"lg"}
-              variant={"default"}
-              className="w-[64px] h-[64px] p-0 rounded-full flex items-center justify-center"
-            >
-              <Link href="#sneakpeek">
-                <MoveDown className="text-deadpool-secondary" size={25} />
-              </Link>
-            </Button>
-            <p className="text-center">Scroll Down</p>
-          </div>
-          <div className="relative h-2/6 lg:w-2/6 flex justify-between items-center px-2 sm:mr-3">
-            {cinemaImages2.map(({ source, altText }, idx) => (
-              <div key={idx}>
-                <Image src={source} alt={altText} width={125} height={100} />
-              </div>
-            ))}
-          </div>
+          {LogosWrapper}
         </div>
       </MaxWidthWrapper>
     </section>

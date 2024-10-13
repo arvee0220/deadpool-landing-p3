@@ -18,7 +18,7 @@ const roadRage = Road_Rage({ subsets: ["latin"], weight: ["400"] });
 function FindTickets() {
   return (
     <MaxWidthWrapper className="2xl:overflow-hidden">
-      <section className="w-11/12 mx-auto flex flex-col items-center">
+      <section className="h-full w-11/12 mx-auto flex flex-col items-center">
         <div className="flex flex-col">
           <h1
             className={`${roadRage.className} text-5xl md:text-7xl lg:text-9xl text-center`}

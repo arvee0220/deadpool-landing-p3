@@ -128,174 +128,178 @@ function MarvelTalk() {
   const columns = splitArray(MARVEL_TALK, 2);
 
   return (
-    <MaxWidthWrapper>
-      <div
-        id="marveltalk"
-        className="w-full mt-24 mb-10 space-y-3 md:space-y-2 md:my-24 xl:mb-16 xl:mt-44 px-[25px] lg:px-[75px] scroll-mt-40"
-      >
-        <div className="space-y-1.5 md:space-y-2">
-          <h1 className="tracking-tighter text-4xl font-semibold">
-            Marvel&apos;s Talk
-          </h1>
-          <p className="tracking-tighter">
-            Your source for the latest in Marvel Cinematics.
-          </p>
+    <section className="w-full">
+      <MaxWidthWrapper>
+        <div
+          id="marveltalk"
+          className="w-full mt-24 mb-10 space-y-3 md:space-y-2 md:my-24 xl:mb-16 xl:mt-44 px-[25px] lg:px-[75px] scroll-mt-28"
+        >
+          <div className="space-y-1.5 md:space-y-2">
+            <h1 className="tracking-tighter text-4xl font-semibold">
+              Marvel&apos;s Talk
+            </h1>
+            <p className="tracking-tighter">
+              Your source for the latest in Marvel Cinematics.
+            </p>
+          </div>
+          <div className="md:hidden flex items-center justify-center gap-4 w-max ml-auto mt-8">
+            <span className="text-sm">SWIPE RIGHT</span>
+            <Button
+              disabled={isEnd}
+              className="size-12 rounded-full border-none bg-[#141311] hover:!bg-stone-700 focus:!bg-stone-700"
+              onClick={() => swiperRef.current?.slideNext()}
+            >
+              <ArrowRight className="size-5 md:size-6 text-deadpool-secondary" />
+            </Button>
+          </div>
+          <div className="relative w-full xl:max-w-screen-xl">
+            <div
+              className="block absolute left-0 w-1/6 inset-y-0 z-10 pointer-events-none"
+              style={{
+                background:
+                  "linear-gradient(to right, #080808, rgba(8, 8, 8, 0))",
+              }}
+            />
+            <div
+              className="block absolute right-0 w-1/6 inset-y-0 z-10 pointer-events-none"
+              style={{
+                background:
+                  "linear-gradient(to left, #080808, rgba(8, 8, 8, 0))",
+              }}
+            />
+            <Swiper
+              grabCursor
+              modules={[A11y]}
+              breakpoints={{
+                320: {
+                  slidesPerView: 1,
+                  spaceBetween: 15,
+                },
+                640: {
+                  slidesPerView: 1.8,
+                  spaceBetween: 15,
+                },
+                768: {
+                  slidesPerView: 2.2,
+                  spaceBetween: 15,
+                },
+                1024: {
+                  slidesPerView: 3,
+                  spaceBetween: 20,
+                },
+              }}
+              onSwiper={(swiper) => (swiperRef.current = swiper)}
+              onSliderMove={(swiper) => {
+                if (isEnd) {
+                  setIsEnd(false);
+                }
+                swiperRef.current = swiper;
+              }}
+              onReachEnd={() => setIsEnd(true)}
+            >
+              {columns[0].map((v, index) => (
+                <SwiperSlide key={index}>
+                  <Card className="bg-[#141311] h-48 flex items-center justify-center space-x-4 m-2 w-full rounded-lg shadow-none border-none px-4 py-5">
+                    <Avatar className="size-12 md:size-14 xl:size-[60px]">
+                      <AvatarImage className="object-cover" src={v.imgSrc} />
+                      <AvatarFallback>CN</AvatarFallback>
+                    </Avatar>
+                    <div className="flex flex-col justify-center flex-1">
+                      <CardHeader className="flex-row items-center gap-1.5 md:gap-2 px-0 py-2">
+                        <CardTitle className="text-lg md:text-xl text-deadpool-secondary tracking-tighter font-semibold">
+                          {v.author}
+                        </CardTitle>
+                        <Circle className="size-1.5 text-[#3e3b36] !fill-[#3e3b36]" />
+                        <CardDescription className="font-semibold tracking-tighter">
+                          {v.timeStamp}
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent className="p-0">
+                        <p className="text-[#F3F3F3] text-sm xs:text-base text-pretty tracking-tighter line-clamp-3 md:line-clamp-4">
+                          {v.content}
+                        </p>
+                      </CardContent>
+                    </div>
+                  </Card>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+          <div className="relative w-full xl:max-w-screen-xl">
+            <div
+              className="block absolute left-0 w-1/6 inset-y-0 z-10 pointer-events-none"
+              style={{
+                background:
+                  "linear-gradient(to right, #080808, rgba(8, 8, 8, 0))",
+              }}
+            />
+            <div
+              className="block absolute right-0 w-1/6 inset-y-0 z-10 pointer-events-none"
+              style={{
+                background:
+                  "linear-gradient(to left, #080808, rgba(8, 8, 8, 0))",
+              }}
+            />
+            <Swiper
+              grabCursor
+              modules={[A11y]}
+              breakpoints={{
+                320: {
+                  slidesPerView: 1.15,
+                  spaceBetween: 15,
+                },
+                640: {
+                  slidesPerView: 1.4,
+                  spaceBetween: 15,
+                },
+                768: {
+                  slidesPerView: 2.4,
+                  spaceBetween: 15,
+                },
+                1024: {
+                  slidesPerView: 3.2,
+                  spaceBetween: 20,
+                },
+              }}
+              onSliderMove={(swiper) => {
+                if (isEnd) {
+                  setIsEnd(false);
+                }
+                swiperRef.current = swiper;
+              }}
+              onReachEnd={() => setIsEnd(true)}
+            >
+              {columns[1].map((v, index) => (
+                <SwiperSlide key={index}>
+                  <Card className="bg-[#141311] h-48 flex items-center justify-center space-x-4 m-2 w-full rounded-lg shadow-none border-none px-4 py-5">
+                    <Avatar className="size-12 md:size-14 xl:size-[60px]">
+                      <AvatarImage className="object-cover" src={v.imgSrc} />
+                      <AvatarFallback>CN</AvatarFallback>
+                    </Avatar>
+                    <div className="flex flex-col justify-center w-auto flex-1">
+                      <CardHeader className="flex-row items-center gap-1.5 md:gap-2 px-0 py-2">
+                        <CardTitle className="text-lg md:text-xl text-deadpool-secondary tracking-tighter font-semibold">
+                          {v.author}
+                        </CardTitle>
+                        <Circle className="size-1.5 text-[#3e3b36] !fill-[#3e3b36]" />
+                        <CardDescription className="font-semibold tracking-tighter">
+                          {v.timeStamp}
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent className="p-0">
+                        <p className="text-[#F3F3F3] line-clamp-3 md:line-clamp-4 text-pretty tracking-tighter text-sm xs:text-base">
+                          {v.content}
+                        </p>
+                      </CardContent>
+                    </div>
+                  </Card>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
         </div>
-        <div className="md:hidden flex items-center justify-center gap-4 w-max ml-auto mt-8">
-          <span className="text-sm">SWIPE RIGHT</span>
-          <Button
-            disabled={isEnd}
-            className="size-12 rounded-full border-none bg-[#141311] hover:!bg-stone-700 focus:!bg-stone-700"
-            onClick={() => swiperRef.current?.slideNext()}
-          >
-            <ArrowRight className="size-5 md:size-6 text-deadpool-secondary" />
-          </Button>
-        </div>
-        <div className="relative w-full xl:max-w-screen-xl">
-          <div
-            className="block absolute left-0 w-1/6 inset-y-0 z-10 pointer-events-none"
-            style={{
-              background:
-                "linear-gradient(to right, #080808, rgba(8, 8, 8, 0))",
-            }}
-          />
-          <div
-            className="block absolute right-0 w-1/6 inset-y-0 z-10 pointer-events-none"
-            style={{
-              background: "linear-gradient(to left, #080808, rgba(8, 8, 8, 0))",
-            }}
-          />
-          <Swiper
-            grabCursor
-            modules={[A11y]}
-            breakpoints={{
-              320: {
-                slidesPerView: 1,
-                spaceBetween: 15,
-              },
-              640: {
-                slidesPerView: 1.8,
-                spaceBetween: 15,
-              },
-              768: {
-                slidesPerView: 2.2,
-                spaceBetween: 15,
-              },
-              1024: {
-                slidesPerView: 3,
-                spaceBetween: 20,
-              },
-            }}
-            onSwiper={(swiper) => (swiperRef.current = swiper)}
-            onSliderMove={(swiper) => {
-              if (isEnd) {
-                setIsEnd(false);
-              }
-              swiperRef.current = swiper;
-            }}
-            onReachEnd={() => setIsEnd(true)}
-          >
-            {columns[0].map((v, index) => (
-              <SwiperSlide key={index}>
-                <Card className="bg-[#141311] h-48 flex items-center justify-center space-x-4 m-2 w-full rounded-lg shadow-none border-none px-4 py-5">
-                  <Avatar className="size-12 md:size-14 xl:size-[60px]">
-                    <AvatarImage className="object-cover" src={v.imgSrc} />
-                    <AvatarFallback>CN</AvatarFallback>
-                  </Avatar>
-                  <div className="flex flex-col justify-center flex-1">
-                    <CardHeader className="flex-row items-center gap-1.5 md:gap-2 px-0 py-2">
-                      <CardTitle className="text-lg md:text-xl text-deadpool-secondary tracking-tighter font-semibold">
-                        {v.author}
-                      </CardTitle>
-                      <Circle className="size-1.5 text-[#3e3b36] !fill-[#3e3b36]" />
-                      <CardDescription className="font-semibold tracking-tighter">
-                        {v.timeStamp}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent className="p-0">
-                      <p className="text-[#F3F3F3] text-sm xs:text-base text-pretty tracking-tighter line-clamp-3 md:line-clamp-4">
-                        {v.content}
-                      </p>
-                    </CardContent>
-                  </div>
-                </Card>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-        <div className="relative w-full xl:max-w-screen-xl">
-          <div
-            className="block absolute left-0 w-1/6 inset-y-0 z-10 pointer-events-none"
-            style={{
-              background:
-                "linear-gradient(to right, #080808, rgba(8, 8, 8, 0))",
-            }}
-          />
-          <div
-            className="block absolute right-0 w-1/6 inset-y-0 z-10 pointer-events-none"
-            style={{
-              background: "linear-gradient(to left, #080808, rgba(8, 8, 8, 0))",
-            }}
-          />
-          <Swiper
-            grabCursor
-            modules={[A11y]}
-            breakpoints={{
-              320: {
-                slidesPerView: 1.15,
-                spaceBetween: 15,
-              },
-              640: {
-                slidesPerView: 1.4,
-                spaceBetween: 15,
-              },
-              768: {
-                slidesPerView: 2.4,
-                spaceBetween: 15,
-              },
-              1024: {
-                slidesPerView: 3.2,
-                spaceBetween: 20,
-              },
-            }}
-            onSliderMove={(swiper) => {
-              if (isEnd) {
-                setIsEnd(false);
-              }
-              swiperRef.current = swiper;
-            }}
-            onReachEnd={() => setIsEnd(true)}
-          >
-            {columns[1].map((v, index) => (
-              <SwiperSlide key={index}>
-                <Card className="bg-[#141311] h-48 flex items-center justify-center space-x-4 m-2 w-full rounded-lg shadow-none border-none px-4 py-5">
-                  <Avatar className="size-12 md:size-14 xl:size-[60px]">
-                    <AvatarImage className="object-cover" src={v.imgSrc} />
-                    <AvatarFallback>CN</AvatarFallback>
-                  </Avatar>
-                  <div className="flex flex-col justify-center w-auto flex-1">
-                    <CardHeader className="flex-row items-center gap-1.5 md:gap-2 px-0 py-2">
-                      <CardTitle className="text-lg md:text-xl text-deadpool-secondary tracking-tighter font-semibold">
-                        {v.author}
-                      </CardTitle>
-                      <Circle className="size-1.5 text-[#3e3b36] !fill-[#3e3b36]" />
-                      <CardDescription className="font-semibold tracking-tighter">
-                        {v.timeStamp}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent className="p-0">
-                      <p className="text-[#F3F3F3] line-clamp-3 md:line-clamp-4 text-pretty tracking-tighter text-sm xs:text-base">
-                        {v.content}
-                      </p>
-                    </CardContent>
-                  </div>
-                </Card>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-      </div>
-    </MaxWidthWrapper>
+      </MaxWidthWrapper>
+    </section>
   );
 }
 
