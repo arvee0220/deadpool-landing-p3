@@ -2,7 +2,7 @@ import { Moon } from "lucide-react";
 
 function Logo() {
   return (
-    <div className="h-15 flex flex-col text-deadpool-primary ml-3">
+    <div className="h-15 flex flex-col text-deadpool-primary">
       <span className="text-sm md:text-base">
         NIGHT{" "}
         <Moon className="size-4 md:size-6 inline relative -top-[10px] -left-[2px]" />
