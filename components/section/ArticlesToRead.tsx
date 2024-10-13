@@ -75,8 +75,6 @@ export default function ArticlesToRead() {
         640: { slidesPerView: 1.65 },
         768: { slidesPerView: 1.95 },
         960: { slidesPerView: 2.5 },
-        1024: { slidesPerView: 2 },
-        1280: { slidesPerView: 2.5 },
         1440: { slidesPerView: 3 },
       }}
       navigation={{
@@ -94,11 +92,12 @@ export default function ArticlesToRead() {
     >
       {articles.map((item, index) => (
         <SwiperSlide key={index}>
-          <div className="w-[350px] lg:w-[415px] flex flex-col gap-5 mb-9">
+          <div className="flex flex-col gap-5 mb-9">
             <Image
               src={item.thumbnail}
               alt={item.alt}
-              className="object-cover rounded-2xl w-[350px] h-[260px] lg:w-[415px] lg:h-[275px]"
+              loading="lazy"
+              className="aspect-[4/3] object-cover bg-center rounded-2xl"
             />
             <div className="flex flex-col gap-[15px]">
               <h1 className="text-deadpool-secondary text-2xl font-semibold">
