@@ -12,13 +12,14 @@ import {
 import { Button } from "../ui/button";
 import { PlayIcon } from "lucide-react";
 import MaxWidthWrapper from "../layout/MaxWidthWrapper";
+import Link from "next/link";
 
 const roadRage = Road_Rage({ subsets: ["latin"], weight: ["400"] });
 
 function FindTickets() {
   return (
     <MaxWidthWrapper className="2xl:overflow-hidden">
-      <section className="h-full w-11/12 mx-auto flex flex-col items-center">
+      <section className="h-[75vh] md:h-full md:py-32 w-11/12 mx-auto flex flex-col justify-center items-center gap-10 md:gap-0">
         <div className="flex flex-col">
           <h1
             className={`${roadRage.className} text-5xl md:text-7xl lg:text-9xl text-center`}
@@ -53,13 +54,15 @@ function FindTickets() {
           </div>
 
           <div className="flex justify-center md:justify-end w-full md:w-auto space-x-2">
-            <Button className="flex justify-evenly items-center w-56 h-20 md:h-16 py-7 rounded-full text-deadpool-primary bg-[#363636] gap-3 justify-self-end">
-              <div className="left-2 p-2 bg-deadpool-primary rounded-full">
-                <PlayIcon className="size-6 fill-black text-black" />
-              </div>
+            <Link href="https://smtickets.com/" target="_blank">
+              <Button className="flex justify-between items-center w-56 h-20 md:h-16 py-7 rounded-full text-deadpool-primary bg-[#363636] gap-3 justify-self-end">
+                <div className="left-2 p-2 bg-deadpool-primary rounded-full">
+                  <PlayIcon className="size-6 fill-black text-black" />
+                </div>
 
-              <div>Find Tickets</div>
-            </Button>
+                <div className="flex-1">Find Tickets</div>
+              </Button>
+            </Link>
             <div className="flex justify-center justify-self-center items-center">
               <Avatar>
                 <Image src={icon1} alt="Icon1" />

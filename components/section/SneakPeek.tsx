@@ -9,6 +9,7 @@ import { Swiper as SwiperType } from "swiper/types";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y } from "swiper/modules";
 import "swiper/css";
+import Link from "next/link";
 
 function SneakPeek() {
   const [isEnd, setIsEnd] = useState<boolean>(false);
@@ -31,15 +32,20 @@ function SneakPeek() {
             and has grossed over $211 million worldwide.
           </p>
 
-          <Button
-            size={"lg"}
-            className="relative rounded-full bg-[#363636] w-max font-normal py-7"
+          <Link
+            href="https://www.youtube.com/watch?v=73_1biulkYk"
+            target="_blank"
           >
-            <div className="absolute left-2 p-2 bg-deadpool-primary rounded-full">
-              <PlayIcon className="size-6 fill-black text-black" />
-            </div>
-            <span className="ml-8">Watch Stream & Trailer</span>
-          </Button>
+            <Button
+              size={"lg"}
+              className="relative rounded-full bg-[#363636] w-max font-normal py-7"
+            >
+              <div className="absolute left-2 p-2 bg-deadpool-primary rounded-full">
+                <PlayIcon className="size-6 fill-black text-black" />
+              </div>
+              <span className="ml-8">Watch Stream & Trailer</span>
+            </Button>
+          </Link>
         </div>
         <div className="relative mx-auto max-w-xs sm:max-w-lg md:max-w-xl mt-20 lg:mt-28">
           <div

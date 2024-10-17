@@ -66,12 +66,14 @@ export default function NavBar() {
   const NavLinksLg = (
     <ul className="hidden md:flex md:gap-4 items-center">
       {NavLinks}
-      <Button
-        variant="secondary"
-        className="rounded-full md:text-xs lg:text-sm"
-      >
-        Contact
-      </Button>
+      <Link href="#contact">
+        <Button
+          variant="secondary"
+          className="rounded-full md:text-xs lg:text-sm"
+        >
+          Contact
+        </Button>
+      </Link>
     </ul>
   );
 
@@ -84,7 +86,9 @@ export default function NavBar() {
             isTransparent && "bg-deadpool-neutral pb-3"
           )}
         >
-          <Logo />
+          <Link href="#" target="_top">
+            <Logo />
+          </Link>
           {NavbarLinksSm}
           {NavLinksLg}
         </nav>

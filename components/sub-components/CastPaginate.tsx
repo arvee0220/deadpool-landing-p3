@@ -40,7 +40,8 @@ export default function CastPaginate({
                 e.preventDefault();
                 onPageChange(idx + 1);
               }}
-              className={currentPage === idx + 1 ? "active" : ""}
+              isActive={currentPage === idx + 1}
+              // className={currentPage === idx + 1 ? "active" : ""}
             >
               {idx + 1}
             </PaginationLink>

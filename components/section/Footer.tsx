@@ -213,7 +213,7 @@ export default function Footer() {
   );
 
   return (
-    <section className="w-full">
+    <section className="w-full scroll-my-20" id="contact">
       <MaxWidthWrapper>
         <div className="w-full flex flex-col text-deadpool-body bg-deadpool-neutral tracking-tighter px-[25px] lg:px-[75px] py-7">
           {subscribeWrapper}

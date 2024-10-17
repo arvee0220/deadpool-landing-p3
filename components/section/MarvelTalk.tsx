@@ -132,7 +132,7 @@ function MarvelTalk() {
       <MaxWidthWrapper>
         <div
           id="marveltalk"
-          className="w-full mt-24 mb-10 space-y-3 md:space-y-2 md:my-24 xl:mb-16 xl:mt-44 px-[25px] lg:px-[75px] scroll-mt-28"
+          className="w-full mb-10 space-y-3 md:space-y-2 md:my-24 xl:mb-16 px-[25px] lg:px-[75px] scroll-mt-28"
         >
           <div className="space-y-1.5 md:space-y-2">
             <h1 className="tracking-tighter text-4xl font-semibold">
