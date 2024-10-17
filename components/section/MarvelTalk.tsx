@@ -142,15 +142,9 @@ function MarvelTalk() {
               Your source for the latest in Marvel Cinematics.
             </p>
           </div>
-          <div className="md:hidden flex items-center justify-center gap-4 w-max ml-auto mt-8">
+          <div className="lg:hidden flex items-center justify-center gap-4 w-max ml-auto mt-8">
             <span className="text-sm">SWIPE RIGHT</span>
-            <Button
-              disabled={isEnd}
-              className="size-12 rounded-full border-none bg-[#141311] hover:!bg-stone-700 focus:!bg-stone-700"
-              onClick={() => swiperRef.current?.slideNext()}
-            >
-              <ArrowRight className="size-5 md:size-6 text-deadpool-secondary" />
-            </Button>
+            <ArrowRight className="size-5 md:size-6 my-6 text-deadpool-secondary animate-bounce-forward" />
           </div>
           <div className="relative w-full xl:max-w-screen-xl">
             <div
