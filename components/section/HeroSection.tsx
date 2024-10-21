@@ -59,12 +59,16 @@ function HeroSection() {
 
   const ButtonsWrapper = (
     <div className="flex flex-col xs:flex-row gap-5 pt-8 xs:py-8">
-      <Button variant="secondary" className="rounded-full" size="lg">
-        Onsale Tickets
-      </Button>
-      <Button variant="outline" className="rounded-full" size="lg">
-        Trailer
-      </Button>
+      <Link href="https://smtickets.com/" target="_blank">
+        <Button variant="secondary" className="rounded-full" size="lg">
+          Onsale Tickets
+        </Button>
+      </Link>
+      <Link href="https://www.youtube.com/watch?v=73_1biulkYk" target="_blank">
+        <Button variant="outline" className="rounded-full" size="lg">
+          Trailer
+        </Button>
+      </Link>
     </div>
   );
 

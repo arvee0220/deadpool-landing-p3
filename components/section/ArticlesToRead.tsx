@@ -10,6 +10,7 @@ import "swiper/css/pagination";
 import "../elements/pagination.css";
 import RoundButton from "../elements/RoundButton";
 import MaxWidthWrapper from "../layout/MaxWidthWrapper";
+import Link from "next/link";
 
 export default function ArticlesToRead() {
   const articles = [
@@ -93,15 +94,20 @@ export default function ArticlesToRead() {
       {articles.map((item, index) => (
         <SwiperSlide key={index}>
           <div className="flex flex-col gap-5 mb-9">
-            <Image
-              src={item.thumbnail}
-              alt={item.alt}
-              className="aspect-[4/3] object-cover bg-center rounded-2xl"
-            />
+            <Link href="#">
+              <Image
+                src={item.thumbnail}
+                alt={item.alt}
+                className="aspect-[4/3] object-cover bg-center rounded-2xl"
+              />
+            </Link>
             <div className="flex flex-col gap-[15px]">
-              <h1 className="text-deadpool-secondary text-2xl font-semibold">
+              <Link
+                href="#"
+                className="text-deadpool-secondary text-2xl font-semibold hover:underline"
+              >
                 {item.title}
-              </h1>
+              </Link>
               <p className="font-normal">{item.description}</p>
               <p className="flex gap-1 text-deadpool-body">
                 <span>By</span>
@@ -126,12 +132,12 @@ export default function ArticlesToRead() {
       <div className="flex justify-between items-center">
         <RoundButton
           direction="left"
-          className="custom-prev w-[60px] h-[60px]"
+          className="custom-prev w-[60px] h-[60px] z-30"
         />
         <div className="swiper-pagination"></div>
         <RoundButton
           direction="right"
-          className="custom-next w-[60px] h-[60px]"
+          className="custom-next w-[60px] h-[60px] z-30"
         />
       </div>
     </Swiper>
